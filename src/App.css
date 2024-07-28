@@ -1,0 +1,225 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: white;
+}
+
+/* a tag links styles of navbar */
+.routes-link {
+  width: 500px;
+}
+
+.routes-link a {
+  position: relative;
+  color: black;
+  text-decoration: none;
+}
+
+.routes-link a:hover::after {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 100%;
+  border: 2px solid orange;
+  top: 240%;
+  left: 0px;
+}
+
+/* carousel slider home page styling*/
+.carousel img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* section 3 design of home */
+.box {
+  height: 276px;
+  width: 211px;
+}
+
+.box img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* footer icons */
+footer a {
+  display: inline-block;
+  margin-bottom: 8px;
+  color: black;
+  text-decoration: none;
+}
+
+.ft-icons {
+  font-size: 22px;
+}
+
+/* mens comp styling */
+.men-sec1-box .box {
+  height: 430px;
+  width: 264px;
+}
+
+.men-comp .men-sec2-box .box {
+  height: 200px;
+  width: 166px;
+}
+
+.men-comp .men-sec3-box .box {
+  height: 315px;
+  width: 205px;
+}
+
+.men-comp .men-sec4-box .box {
+  height: 218px;
+  width: 166px;
+}
+
+.men-comp .men-sec5-box .box {
+  height: 269px;
+  width: 205px;
+}
+
+.men-comp .men-sec6-box .box {
+  height: 269px;
+  width: 205px;
+}
+
+.men-comp .men-sec7-box .box {
+  height: 269px;
+  width: 205px;
+}
+
+.men-comp .men-sec8-box .box {
+  height: 269px;
+  width: 205px;
+}
+
+/* women comp styling */
+.box {
+  transition: all 0.3s ease-in-out;
+}
+
+.box:hover {
+  transform: translateY(-20px);
+}
+
+.women-comp .women-sec1-box .box {
+  height: 334px;
+  width: 220px;
+}
+
+.women-comp .women-sec2-box .box {
+  height: 200px;
+  width: 166px;
+}
+
+.women-comp .women-sec3-box .box {
+  height: 315px;
+  width: 235px;
+}
+
+.women-comp .women-sec4-box .box {
+  height: 269px;
+  width: 205px;
+}
+
+.women-comp .women-sec5-box .box {
+  height: 269px;
+  width: 205px;
+}
+
+.women-comp .women-sec6-box .box {
+  height: 269px;
+  width: 205px;
+}
+
+.women-comp .women-sec7-box .box {
+  height: 269px;
+  width: 205px;
+}
+
+.women-comp .women-sec8-box .box {
+  height: 269px;
+  width: 205px;
+}
+
+/* kids comp styling */
+.kids-comp .kid-sec1-box .box {
+  width: 137px;
+  height: 143px;
+}
+
+.kids-comp .kid-sec2-box .box {
+  width: 113px;
+  height: 81px;
+}
+
+.kids-comp .kid-sec3-box .box {
+  width: 250px;
+  height: 295px;
+}
+
+.kids-comp .kid-sec4-box .box {
+  width: 250px;
+  height: 328px;
+}
+
+.kids-comp .kid-sec5-box .box {
+  width: 50%;
+  height: 733px;
+}
+
+.kids-comp .kid-sec6-box img {
+  width: 50%;
+}
+
+.kids-comp .kid-sec7-box .box {
+  width: 206px;
+  height: 210px;
+}
+
+.kids-comp .kid-sec8-box .box {
+  width: 247px;
+  height: 289px;
+}
+
+/* home living comp styling */
+.home-living-comp img {
+  height: 100%;
+  width: 100%;
+}
+
+.home-living-comp section.section1 .first-div {
+  width: 846px;
+}
+
+.home-living-comp section.section1 .second-div {
+  width: 364px;
+}
+
+.hl-sec1-box .box {
+  height: 324px;
+  width: 415px;
+}
+
+.hl-sec2-box .box {
+  height: 397px;
+  width: 374px;
+}
+.hl-sec3-box .box {
+  height:143px;
+  width: 231px;
+}
+
+/* beauty copm styling */
+aside{
+  width: 252px;
+  height: 1483px;
+  border: 2px solid red;
+}
