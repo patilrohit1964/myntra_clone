@@ -2,7 +2,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: white;
 }
 
 /* a tag links styles of navbar */
@@ -219,7 +218,7 @@ footer a {
   width: 231px;
 }
 
-/* beauty copm styling */
+/* beauty comp styling */
 aside{
   width: 252px;
   height: 1483px;
@@ -239,4 +238,13 @@ aside input[type='checkbox'],aside input[type='radio']{
   height: 230px;
   object-fit: cover;
   object-position: center;
+}
+
+.card {
+  transition: all 0.3s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-20px);
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
 }

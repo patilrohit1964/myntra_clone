@@ -5,31 +5,48 @@ import Form from 'react-bootstrap/Form';
 import axios from 'axios'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
+import { collection, getDocs } from 'firebase/firestore';
+import { db } from '../firebase/firebase';
 const Beauty = () => {
     const [data, setData] = useState([]);
     const [page, setPage] = useState(1);
-    const [selectVal,setSelectVal]=useState(null);
+    const [selectVal, setSelectVal] = useState(null);
+    const [checkboxVal,setCheckBox]=useState(null); 
+    const [start,setStart]=useState();
+    const [end,setEnd]=useState(10000);
     // fetch data from json
     function getData() {
         axios.get("http://localhost:3000/beautyProducts", {
             params: {
                 _page: page,
                 _limit: 10,
-                _sort:"price",
-                _order:selectVal
+                _sort: "price",
+                _order: selectVal,
+                category:checkboxVal,
+                _start:start,
+                _end:end
             }
         })
             .then(e => setData(e.data))
             .catch(e => console.log(e))
     };
 
-    // event handlings
-    function selectSorting(e){
-        setSelectVal(e.target.value)
+    function priceSort(e){
+        setStart(e.target.name)
+        console.log(e.target.name)
+
+        // slicing sorted incomplete
     }
+    // event handlings
+    // // tp firestore
+    // async function firestoreData(){
+    //     let ans=await getDocs(collection(db,'users')).then(e=>{return e})
+    //     console.log(ans);
+    // }
     useEffect(() => {
+        // firestoreData();
         getData();
-    }, [page,selectVal]);
+    }, [page, selectVal,checkboxVal,start]);
     return (
         <div className='beauty-comp'>
             <div className='d-flex'>
@@ -42,18 +59,18 @@ const Beauty = () => {
                     <hr />
                     <div>
                         <ul className='list-unstyled ps-4'>
-                            <li className='d-flex align-items-center mb-2'><input type="radio" name="gender" className='d-inline-block me-3' /><b>Men</b></li>
-                            <li className='d-flex align-items-center mb-2'><input type="radio" name="gender" className='d-inline-block me-3' /><b>Women</b></li>
-                            <li className='d-flex align-items-center mb-2'><input type="radio" name="gender" className='d-inline-block me-3' /><b>Boy</b></li>
-                            <li className='d-flex align-items-center mb-2'><input type="radio" name="gender" className='d-inline-block me-3' /><b>Girl</b></li>
+                            <li className='d-flex align-items-center mb-2' value="men"><input type="radio" name="gender" className='d-inline-block me-3'/><b>Men</b></li>
+                            <li className='d-flex align-items-center mb-2' value="women"><input type="radio" name="gender" className='d-inline-block me-3' /><b>Women</b></li>
+                            <li className='d-flex align-items-center mb-2' value="boy"><input type="radio" name="gender" className='d-inline-block me-3' /><b>Boy</b></li>
+                            <li className='d-flex align-items-center mb-2' value="girl"><input type="radio" name="gender" className='d-inline-block me-3' /><b>Girl</b></li>
                         </ul><hr />
                         <p className='ps-4 d-flex justify-content-between w-75 align-items-center'>
                             <b>CATEGORIES</b>
                             <FaSearch />
                         </p>
-                        <ul className='list-unstyled ps-4'>
-                            <li className='d-flex align-items-center mb-2'><input type="checkbox" className='d-inline-block me-3' name="lipstick" id="" />Lipstick</li>
-                            <li className='d-flex align-items-center mb-2'><input type="checkbox" className='d-inline-block me-3' name="nail" id="" />Nail Pollish</li>
+                        <ul className='list-unstyled ps-4' onChange={(e)=>setCheckBox(e.target.name)}>
+                            <li className='d-flex align-items-center mb-2'><input type="checkbox" className='d-inline-block me-3' name="lipstick" id="" value="lipstick"/>Lipstick</li>
+                            <li className='d-flex align-items-center mb-2'><input type="checkbox" className='d-inline-block me-3' name="nailPolish" id="" />Nail Pollish</li>
                             <li className='d-flex align-items-center mb-2'><input type="checkbox" className='d-inline-block me-3' name="perfume" id="" />Perfume</li>
                             <li className='d-flex align-items-center mb-2'><input type="checkbox" className='d-inline-block me-3' name="massage" id="" />Massage Oils</li>
                             <li className='d-flex align-items-center mb-2'><input type="checkbox" className='d-inline-block me-3' name="face" id="" />Face Wash and Cleanser</li>
@@ -79,11 +96,11 @@ const Beauty = () => {
                         </ul><hr />
 
                         <p className='ps-4'><b>PRICE</b></p>
-                        <ul className='list-unstyled ps-4'>
-                            <li className='d-flex align-items-center mb-2'><input type="checkbox" className='d-inline-block me-3' name="" id="" />Rs.21 to Rs.11493</li>
-                            <li className='d-flex align-items-center mb-2'><input type="checkbox" className='d-inline-block me-3' name="" id="" />Rs.21 to Rs.22965</li>
-                            <li className='d-flex align-items-center mb-2'><input type="checkbox" className='d-inline-block me-3' name="" id="" />Rs.21 to Rs.34437</li>
-                            <li className='d-flex align-items-center mb-2'><input type="checkbox" className='d-inline-block me-3' name="" id="" />Rs.21 to Rs.45909</li>
+                        <ul className='list-unstyled ps-4' onChange={priceSort}>
+                            <li className='d-flex align-items-center mb-2'><input type="checkbox" className='d-inline-block me-3' name="20" id="" />Rs.21 to Rs.11493</li>
+                            <li className='d-flex align-items-center mb-2'><input type="checkbox" className='d-inline-block me-3' name="40" id="" />Rs.21 to Rs.22965</li>
+                            <li className='d-flex align-items-center mb-2'><input type="checkbox" className='d-inline-block me-3' name="60" id="" />Rs.21 to Rs.34437</li>
+                            <li className='d-flex align-items-center mb-2'><input type="checkbox" className='d-inline-block me-3' name="80" id="" />Rs.21 to Rs.45909</li>
                         </ul><hr />
 
                         <p className='ps-4 d-flex justify-content-between w-75 align-items-center'>
@@ -121,19 +138,19 @@ const Beauty = () => {
                             <p className='me-3 mt-1'>Country of Origin <IoMdArrowDropdown /></p>
                             <p className='me-3 mt-1'>Size <IoMdArrowDropdown /></p>
                         </div>
-                        <Form.Select name="" id="" className='w-25' onChange={selectSorting}>
+                        <Form.Select name="" id="" className='w-25' onChange={(e) => setSelectVal(e.target.value)}>
                             <option value="">Sorted by:Recommended</option>
                             <option value="">What's New</option>
                             <option value="">Popularity</option>
                             <option value="">Better Discount</option>
-                            <option value="asc">Price:High to Low</option>
-                            <option value="desc">Price:Low to High</option>
+                            <option value="desc">Price:High to Low</option>
+                            <option value="asc">Price:Low to High</option>
                             <option value="">Cutomer Rating</option>
                         </Form.Select>
                     </div><hr />
                     <div className="d-flex justify-content-around flex-wrap align-items-center">
                         {data.length > 0 ? data.map((e, index) => (
-                            <Card style={{ width: '18rem' }} className='mb-3 text-center' key={index}>
+                            <Card style={{ width: '15rem' }} className='mb-3 text-center' key={index}>
                                 <Card.Img src={e.image} alt="not found" />
                                 <Card.Body>
                                     <span>{e.rating} <FaStar className='text-primary' /> | {e.ratingCount}</span>
