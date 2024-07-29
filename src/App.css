@@ -48,6 +48,7 @@
 }
 
 /* footer icons */
+
 footer a {
   display: inline-block;
   margin-bottom: 8px;
@@ -107,6 +108,7 @@ footer a {
 
 .box:hover {
   transform: translateY(-20px);
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
 }
 
 .women-comp .women-sec1-box .box {
@@ -221,5 +223,20 @@ footer a {
 aside{
   width: 252px;
   height: 1483px;
-  border: 2px solid red;
+  border-right: 2px solid #ddd;
+  overflow-y: scroll;
+}
+aside::-webkit-scrollbar{
+  color: red;
+}
+aside input[type='checkbox'],aside input[type='radio']{
+  height:18px;
+  width:18px;
+}
+
+.beauty-comp img{
+  width: 230px;
+  height: 230px;
+  object-fit: cover;
+  object-position: center;
 }

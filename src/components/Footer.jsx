@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { FaFacebook, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
 const Footer = () => {
     return (
-        <div className='mt-5 container'>
+        <div className='container'>
             <footer className='pb-5'>
                 <div className="div1 d-flex mt-5 container justify-content-between">
                     <div >
