@@ -1,6 +1,7 @@
 import React from 'react'
 import Footer from '../components/Footer'
 import Carousel from 'react-bootstrap/Carousel';
+import { Link } from 'react-router-dom';
 const Men = () => {
     const sec1Img = [
         'https://assets.myntassets.com/f_webp,w_245,c_limit,fl_progressive,dpr_2.0/assets/images/2020/8/31/1dce9c3e-77fa-48f1-85a3-d3c136c1d73e1598892377652-USPA.jpg',
@@ -91,9 +92,11 @@ const Men = () => {
                 <h4>Biggest Deals On Top Brands</h4>
                 <div className='d-flex justify-content-center mt-5 flex-wrap'>
                     {sec1Img.map((e, index) => (
-                        <div key={index} className='box mb-2 me-2'>
-                            <img className='img-fluid' src={e} alt='' />
-                        </div>
+                        <Link to={'/listProduct/men'}>
+                            <div key={index} className='box mb-2 me-2'>
+                                <img className='img-fluid' src={e} alt='' />
+                            </div>
+                        </Link>
                     ))}
                 </div>
             </section>

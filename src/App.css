@@ -3,7 +3,10 @@
   padding: 0;
   box-sizing: border-box;
 }
-
+a{
+  text-decoration: none;
+  color: black;
+}
 /* a tag links styles of navbar */
 .routes-link {
   width: 500px;
@@ -235,7 +238,8 @@ aside input[type='checkbox'],aside input[type='radio']{
 
 .beauty-comp img{
   width: 230px;
-  height: 230px;
+  min-height: 230px;
+  /* border: 2px solid red; */
   object-fit: cover;
   object-position: center;
 }

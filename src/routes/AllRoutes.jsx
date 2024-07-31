@@ -6,6 +6,7 @@ import Women from '../pages/Women'
 import Kids from '../pages/Kids'
 import Home_Living from '../pages/Home_Living'
 import Beauty from '../pages/Beauty'
+import ListProduct from '../pages/ListProduct'
 const AllRoutes = () => {
   return (
     <div>
@@ -16,7 +17,7 @@ const AllRoutes = () => {
             <Route path='/kids' element={<Kids/>}></Route>
             <Route path='/home_living' element={<Home_Living/>}></Route>
             <Route path='/beauty' element={<Beauty/>}></Route>
-            <Route path='/studio' element={<h1>STUDIO</h1>}></Route>
+            <Route path='/listProduct/:category' element={<ListProduct/>}></Route>
         </Routes>
     </div>
   )

@@ -7,13 +7,14 @@ import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../firebase/firebase';
+import { Link } from 'react-router-dom';
 const Beauty = () => {
     const [data, setData] = useState([]);
     const [page, setPage] = useState(1);
     const [selectVal, setSelectVal] = useState(null);
-    const [checkboxVal,setCheckBox]=useState(null); 
-    const [start,setStart]=useState();
-    const [end,setEnd]=useState(10000);
+    const [checkboxVal, setCheckBox] = useState(null);
+    const [startVal, setStart] = useState(NaN);
+    const [end, setEnd] = useState(1000);
     // fetch data from json
     function getData() {
         axios.get("http://localhost:3000/beautyProducts", {
@@ -22,21 +23,14 @@ const Beauty = () => {
                 _limit: 10,
                 _sort: "price",
                 _order: selectVal,
-                category:checkboxVal,
-                _start:start,
-                _end:end
+                category: checkboxVal,
             }
         })
             .then(e => setData(e.data))
             .catch(e => console.log(e))
     };
 
-    function priceSort(e){
-        setStart(e.target.name)
-        console.log(e.target.name)
 
-        // slicing sorted incomplete
-    }
     // event handlings
     // // tp firestore
     // async function firestoreData(){
@@ -46,7 +40,7 @@ const Beauty = () => {
     useEffect(() => {
         // firestoreData();
         getData();
-    }, [page, selectVal,checkboxVal,start]);
+    }, [page, selectVal, checkboxVal]);
     return (
         <div className='beauty-comp'>
             <div className='d-flex'>
@@ -59,7 +53,7 @@ const Beauty = () => {
                     <hr />
                     <div>
                         <ul className='list-unstyled ps-4'>
-                            <li className='d-flex align-items-center mb-2' value="men"><input type="radio" name="gender" className='d-inline-block me-3'/><b>Men</b></li>
+                            <li className='d-flex align-items-center mb-2' value="men"><input type="radio" name="gender" className='d-inline-block me-3' /><b>Men</b></li>
                             <li className='d-flex align-items-center mb-2' value="women"><input type="radio" name="gender" className='d-inline-block me-3' /><b>Women</b></li>
                             <li className='d-flex align-items-center mb-2' value="boy"><input type="radio" name="gender" className='d-inline-block me-3' /><b>Boy</b></li>
                             <li className='d-flex align-items-center mb-2' value="girl"><input type="radio" name="gender" className='d-inline-block me-3' /><b>Girl</b></li>
@@ -68,15 +62,15 @@ const Beauty = () => {
                             <b>CATEGORIES</b>
                             <FaSearch />
                         </p>
-                        <ul className='list-unstyled ps-4' onChange={(e)=>setCheckBox(e.target.name)}>
-                            <li className='d-flex align-items-center mb-2'><input type="checkbox" className='d-inline-block me-3' name="lipstick" id="" value="lipstick"/>Lipstick</li>
-                            <li className='d-flex align-items-center mb-2'><input type="checkbox" className='d-inline-block me-3' name="nailPolish" id="" />Nail Pollish</li>
-                            <li className='d-flex align-items-center mb-2'><input type="checkbox" className='d-inline-block me-3' name="perfume" id="" />Perfume</li>
-                            <li className='d-flex align-items-center mb-2'><input type="checkbox" className='d-inline-block me-3' name="massage" id="" />Massage Oils</li>
-                            <li className='d-flex align-items-center mb-2'><input type="checkbox" className='d-inline-block me-3' name="face" id="" />Face Wash and Cleanser</li>
-                            <li className='d-flex align-items-center mb-2'><input type="checkbox" className='d-inline-block me-3' name="bindi" id="" />Bindi</li>
-                            <li className='d-flex align-items-center mb-2'><input type="checkbox" className='d-inline-block me-3' name="serum" id="" />Serum and Gel</li>
-                            <li className='d-flex align-items-center mb-2'><input type="checkbox" className='d-inline-block me-3' name="skin" id="" />Skin Care Combo</li>
+                        <ul className='list-unstyled ps-4' onChange={(e) => setCheckBox(e.target.name)}>
+                            <li className='d-flex align-items-center mb-2'><input type="checkbox" className='d-inline-block me-3' name="lipstick" />Lipstick</li>
+                            <li className='d-flex align-items-center mb-2'><input type="checkbox" className='d-inline-block me-3' name="nailPolish" />Nail Pollish</li>
+                            <li className='d-flex align-items-center mb-2'><input type="checkbox" className='d-inline-block me-3' name="perfume" />Perfume</li>
+                            <li className='d-flex align-items-center mb-2'><input type="checkbox" className='d-inline-block me-3' name="massageOil" />Massage Oils</li>
+                            <li className='d-flex align-items-center mb-2'><input type="checkbox" className='d-inline-block me-3' name="faceWash" />Face Wash and Cleanser</li>
+                            <li className='d-flex align-items-center mb-2'><input type="checkbox" className='d-inline-block me-3' name="bindi" />Bindi</li>
+                            <li className='d-flex align-items-center mb-2'><input type="checkbox" className='d-inline-block me-3' name="serum" />Serum and Gel</li>
+                            <li className='d-flex align-items-center mb-2'><input type="checkbox" className='d-inline-block me-3' name="skinCare" />Skin Care Combo</li>
                             <li className="text-danger ps-4 pt-2">+173 more</li>
                         </ul><hr />
                         <p className='ps-4 d-flex justify-content-between w-75 align-items-center'>
@@ -96,7 +90,7 @@ const Beauty = () => {
                         </ul><hr />
 
                         <p className='ps-4'><b>PRICE</b></p>
-                        <ul className='list-unstyled ps-4' onChange={priceSort}>
+                        <ul className='list-unstyled ps-4'>
                             <li className='d-flex align-items-center mb-2'><input type="checkbox" className='d-inline-block me-3' name="20" id="" />Rs.21 to Rs.11493</li>
                             <li className='d-flex align-items-center mb-2'><input type="checkbox" className='d-inline-block me-3' name="40" id="" />Rs.21 to Rs.22965</li>
                             <li className='d-flex align-items-center mb-2'><input type="checkbox" className='d-inline-block me-3' name="60" id="" />Rs.21 to Rs.34437</li>
@@ -140,31 +134,33 @@ const Beauty = () => {
                         </div>
                         <Form.Select name="" id="" className='w-25' onChange={(e) => setSelectVal(e.target.value)}>
                             <option value="">Sorted by:Recommended</option>
-                            <option value="">What's New</option>
-                            <option value="">Popularity</option>
-                            <option value="">Better Discount</option>
+                            <option value="whatNew">What's New</option>
+                            <option value="popular">Popularity</option>
+                            <option value="discount">Better Discount</option>
                             <option value="desc">Price:High to Low</option>
                             <option value="asc">Price:Low to High</option>
-                            <option value="">Cutomer Rating</option>
+                            <option value="rating">Cutomer Rating</option>
                         </Form.Select>
                     </div><hr />
                     <div className="d-flex justify-content-around flex-wrap align-items-center">
                         {data.length > 0 ? data.map((e, index) => (
                             <Card style={{ width: '15rem' }} className='mb-3 text-center' key={index}>
-                                <Card.Img src={e.image} alt="not found" />
-                                <Card.Body>
-                                    <span>{e.rating} <FaStar className='text-primary' /> | {e.ratingCount}</span>
-                                    <Card.Title className='pt-2'>{e.title}</Card.Title>
-                                    <Card.Text className='text-secondary m-0'>{e.description}</Card.Text><br />
-                                    <Card.Text><b>{e.price}</b></Card.Text>
-                                </Card.Body>
+                                <Link to={'/listProduct'}>
+                                    <Card.Img src={e.image} alt={e.description} />
+                                    <Card.Body>
+                                        <span>{e.rating} <FaStar className='text-primary' /> | {e.ratingCount}</span>
+                                        <Card.Title className='pt-2'>{e.title}</Card.Title>
+                                        <Card.Text className='text-secondary m-0'>{e.description}</Card.Text><br />
+                                        <Card.Text><b>{e.price}</b></Card.Text>
+                                    </Card.Body>
+                                </Link>
                             </Card>
                         )) : <h1 className='text-center mt-5 ps-5'>Sorry Products Not available!!!</h1>}
                     </div>
                     <div className='data-btns d-flex justify-content-center mt-5 align-items-center w-50 bg- m-auto'>
                         <button className="btn btn-secondary p-2 me-2" onClick={(e) => setPage(page - 1)} disabled={page == 1}>Previous</button>
                         <h4>{page}</h4>
-                        <button className="btn btn-secondary p-2 ms-2" onClick={(e) => setPage(page + 1)}>Next</button>
+                        <button className="btn btn-secondary p-2 ms-2" onClick={(e) => setPage(page + 1)} disabled={data.length==0}>Next</button>
                     </div>
                 </div>
             </div>
