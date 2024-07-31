@@ -10,7 +10,19 @@ const ProductDetails = () => {
         let data = axios.get(`http://localhost:3000/beautyProducts/${id}`);
         let result = (await data).data;
         setData(result);
-        console.log(result)
+    }
+
+    // add item in wishlist
+    async function addItem(){
+        let result=axios.post(`http://localhost:3000/cart`,data,{
+            headers:{
+                'Content-Type': 'application/json'
+            }
+        })
+        let finalResult=await result;
+        if(finalResult.status==201){
+            alert('added successfully');
+        }
     }
 
     useEffect(() => {
@@ -37,7 +49,7 @@ const ProductDetails = () => {
                         </ul>
                     </div>
                     <button className="btn btn-danger text-white me-4"><FaShoppingBag /> ADD TO BAG</button>
-                    <button className="btn border-secondary"><FaBookmark /> WISHLIST</button>
+                    <button className="btn border-secondary" onClick={addItem}><FaBookmark /> WISHLIST</button>
                 </div>
             </div>
         </div>

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { FaStar,FaRegHeart } from 'react-icons/fa'
+import { FaStar, FaRegHeart } from 'react-icons/fa'
 import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form'
 const ListProduct = () => {
@@ -10,7 +10,8 @@ const ListProduct = () => {
     const [sortSelect, setSelect] = useState(null);
     const { category } = useParams();
     const [search, setSearch] = useState(null);
-    async function getDataWithCategory(e) {
+
+    async function getDataWithCategory() {
         let data = axios.get(`http://localhost:3000/beautyProducts`, {
             params: {
                 category: category,
@@ -22,6 +23,7 @@ const ListProduct = () => {
         let result = (await data).data;
         setData(result);
     }
+
     useEffect(() => {
         getDataWithCategory();
     }, [sortSelect, search]);
@@ -47,7 +49,9 @@ const ListProduct = () => {
                                 <Card.Text className='text-secondary m-0'>{e.description}</Card.Text><br />
                                 <Card.Text><b>{e.price}</b></Card.Text>
                                 <div className="cbhover">
-                                    <Link to={'/prDetail'} className='w-75'><button className='btn border-secondary bg-danger text-white' onClick={(e)=>alert(e.id)}><FaRegHeart /> Wishlist</button></Link>
+                                    <button className='btn border-secondary bg-danger text-white'>
+                                        <FaRegHeart /> Wishlist
+                                    </button>
                                 </div>
                             </Card.Body>
                         </Link>

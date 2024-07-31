@@ -11,6 +11,7 @@ import Login from '../pages/Login';
 import ProductDetails from '../pages/ProductDetails';
 import Privatecomp from '../private/Privatecomp';
 import Bag from '../pages/Bag';
+import WishList from '../pages/WishList';
 
 const AllRoutes = () => {
   return (
@@ -27,6 +28,7 @@ const AllRoutes = () => {
             <Route path='/prDetail/:id' element={<ProductDetails/>}></Route>
             {/* </Route> */}
             <Route path='/bag' element={<Bag/>}></Route>
+            <Route path='/wishlist' element={<WishList/>}></Route>
             <Route path='/login' element={<Login/>}></Route>
         </Routes>
     </div>

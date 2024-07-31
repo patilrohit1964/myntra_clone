@@ -1,12 +1,10 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-import Button from 'react-bootstrap/Button';
+import { Link,NavLink } from 'react-router-dom'
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
-import Offcanvas from 'react-bootstrap/Offcanvas';
+import { IoMdArrowDropdown } from "react-icons/io";
 import { FaRegUserCircle, FaRegHeart, FaShoppingBag } from "react-icons/fa";
 const Navbarnav = () => {
     // part of links
@@ -39,34 +37,34 @@ const Navbarnav = () => {
                             aria-label="Search"
                         />
                         <Nav className='d-flex align-items-center'>
-                            <Link>
-                                <NavDropdown id="collapsible-nav-dropdown" title={<FaRegUserCircle/>}>
-                                    <Link>
-                                        <h6><b>Welcome</b></h6>
-                                        <span>To access account and manage orders</span><br />
-                                        <Link to={'/login'}><button className='btn text-danger border'>LOGIN / SIGNUP</button></Link>
-                                    </Link> <hr />
-                                    <Link >Orders</Link>
-                                    <Link >Wishlist</Link>
+                            <NavLink className='position-relative profile-drop'>
+                                <FaRegUserCircle /><br />
+                                <span>Profile <IoMdArrowDropdown /></span>
+                                <div className='dropdown'>
+                                    <h6 className='mt-3'><b>Welcome</b></h6>
+                                    <span className='d-inline-block mb-2'>To access account and manage orders</span><br />
+                                    <NavLink to={'/login'}><button className='btn text-danger border'>LOGIN / SIGNUP</button></NavLink><hr />
+                                    <NavLink to={'/login'}>Orders</NavLink><br />
+                                    <NavLink to={'/wishlist'}>Wishlist</NavLink>
                                     <hr />
-                                    <Link>Gift Cards</Link>
-                                    <Link>Contact Us</Link>
-                                    <Link>Myntra Insider</Link> <hr />
-                                    <Link>Myntra credits</Link>
-                                    <Link>Coupon</Link>
-                                    <Link>Saved Cards</Link>
-                                    <Link>Saved VPA</Link>
-                                    <Link>Saved Addresses</Link>
-                                </NavDropdown>
-                            </Link>
-                            <Link className='me-3 ms-3'>
+                                    <NavLink>Gift Cards</NavLink><br />
+                                    <NavLink>Contact Us</NavLink><br />
+                                    <NavLink>Myntra Insider</NavLink> <hr />
+                                    <NavLink>Myntra credits</NavLink><br />
+                                    <NavLink>Coupon</NavLink><br />
+                                    <NavLink>Saved Cards</NavLink><br />
+                                    <NavLink>Saved VPA</NavLink><br />
+                                    <NavLink>Saved Addresses</NavLink>
+                                </div>
+                            </NavLink>
+                            <NavLink className='me-3 ms-3' to={'/wishlist'}>
                                 <FaRegHeart /><br />
                                 WishList
-                            </Link>
-                            <Link to={'/bag'} className='m-0 p-0'>
+                            </NavLink>
+                            <NavLink to={'/bag'} className='m-0 p-0'>
                                 <FaShoppingBag /><br />
                                 Bag
-                            </Link>
+                            </NavLink>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

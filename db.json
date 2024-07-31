@@ -3853,5 +3853,46 @@
             "price": "Rs. 5999",
             "product_discountPercentage": "(33% OFF)"
         }
+    ],
+    "cart": [
+        {
+            "id": 28864274,
+            "rating": 3.9,
+            "ratingsCount": "100",
+            "baseHref": "https://www.myntra.com/sarees/kalini/kalini-assamese-mekhela-chador-saree-with-blouse-piece/28864274/buy",
+            "image": "https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/28864274/2024/4/11/124fba4b-e48b-455a-bd3a-8b069ac295d71712828732244Sarees1.jpg",
+            "title": "KALINI",
+            "description": "Woven Design Muga Saree",
+            "discountedPrice": "Rs. 681",
+            "price": "Rs. 4541",
+            "discountPercentage": "(85% OFF)",
+            "category": "women"
+        },
+        {
+            "id": 27214066,
+            "rating": 4.2,
+            "ratingsCount": "1.1k",
+            "baseHref": "https://www.myntra.com/sarees/kalini/kalini-kalamkari-printed-block-print-saree/27214066/buy",
+            "image": "https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/27214066/2024/1/29/25f22eaa-c9e8-422e-be02-2eddbe59332d1706510055234KALINIKalamkariArtSilkBlockPrintSaree1.jpg",
+            "title": "KALINI",
+            "description": "Kalamkari Block Print Saree",
+            "discountedPrice": "Rs. 601",
+            "price": "Rs. 1770",
+            "discountPercentage": "(66% OFF)",
+            "category": "women"
+        },
+        {
+            "id": 22010256,
+            "rating": 4,
+            "ratingsCount": "1.7k",
+            "baseHref": "https://www.myntra.com/sarees/kalini/kalini-floral-batik-dyed-chiffon-saree/22010256/buy",
+            "image": "https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/22010256/2024/7/22/ee7e92be-5850-4aa8-84ea-d737857dc89d1721647510543-KALINI-Floral-Batik-Dyed-Chiffon-Saree-6051721647510118-1.jpg",
+            "title": "KALINI",
+            "description": "Batik Dyed Chiffon Saree",
+            "discountedPrice": "Rs. 615",
+            "price": "Rs. 2799",
+            "discountPercentage": "(78% OFF)",
+            "category": "women"
+        }
     ]
 }

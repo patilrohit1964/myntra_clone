@@ -27,7 +27,23 @@ a{
   top: 200%;
   left: 0px;
 }
-
+/* nav dropdown styling */
+.profile-drop:hover .dropdown{
+  display: block;
+}
+.dropdown{
+  display: none;
+  position: absolute;
+  right: -65px;
+  top: 45px;
+  width:291px;
+  height:432px;
+  z-index: 999;
+  background-color: white;
+}
+.dropdown a:hover{
+  font-weight: bold;
+}
 /* carousel slider home page styling*/
 .carousel img {
   height: 100%;
@@ -287,7 +303,9 @@ form img{
   background-color: white;
   border: 2px solid #ddd;
 }
-
+.modal{
+  margin-top:150px;
+}
 /* prdetail-comp styling */
 
 .prdetail-parent div{

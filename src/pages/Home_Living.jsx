@@ -76,10 +76,10 @@ const Home_Living = () => {
             <section className="section1 mt-5 container d-flex justify-content-between">
                 <div className='first-div'>
                     <h4>NICE TO SEE YOU, COME ON IN!</h4>
-                    <div className='hl-sec1-box d-flex justify-content-between mt-5 flex-wrap'>
+                    <div className='hl-sec1-box d-flex justify-content-center mt-5 flex-wrap'>
                         {sec1Img.map((el, index) => (
                             <Link to={'/listProduct/home_living'} key={index}>
-                                <div className='mb-3 box'>
+                                <div className='mb-3 box ms-2'>
                                     <img src={el} alt="internet problem" />
                                 </div>
                             </Link>
