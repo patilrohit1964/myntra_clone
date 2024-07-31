@@ -24,7 +24,7 @@ a{
   display: block;
   width: 100%;
   border: 2px solid orange;
-  top: 240%;
+  top: 200%;
   left: 0px;
 }
 
@@ -236,10 +236,9 @@ aside input[type='checkbox'],aside input[type='radio']{
   width:18px;
 }
 
-.beauty-comp img{
+.beauty-comp img,.listProduct-comp img{
   width: 230px;
   min-height: 230px;
-  /* border: 2px solid red; */
   object-fit: cover;
   object-position: center;
 }
@@ -251,4 +250,59 @@ aside input[type='checkbox'],aside input[type='radio']{
 .card:hover {
   transform: translateY(-20px);
   box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+}
+
+/* login comp styling */
+form{
+  width:400px;
+  height: 593px;
+  margin: auto;
+}
+
+.img-div{
+  width: 400px;
+  height: 160px;
+}
+form img{
+  width: 100%;
+  height: 100%;
+}
+
+/* wisht list design */
+.card-body{
+  position:relative;
+}
+.cbhover{
+  display: none;
+}
+.card-body:hover .cbhover{
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  top: 0%;
+  left: 0%;
+  background-color: white;
+  border: 2px solid #ddd;
+}
+
+/* prdetail-comp styling */
+
+.prdetail-parent div{
+  width: 50%;
+}
+.prdetail-parent ul li{
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  border: 2px solid #7a6d6d;
+  padding: 13px;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+.prdetail-parent ul li:hover{
+  color: white;
+  background-color: rgb(237, 66, 94);
 }

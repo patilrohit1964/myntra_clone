@@ -1,6 +1,6 @@
 import React from 'react'
 import Carousel from 'react-bootstrap/esm/Carousel'
-
+import { Link } from 'react-router-dom'
 const Kids = () => {
     const kidsCarousel = [
         'https://assets.myntassets.com/f_webp,w_980,c_limit,fl_progressive,dpr_2.0/assets/images/2022/4/12/a606c305-a23f-4fe3-a630-343ced4a10261649782019470-Kids-Wear_Desk_Banner.jpg?v1',
@@ -66,8 +66,8 @@ const Kids = () => {
         'https://assets.myntassets.com/f_webp,w_490,c_limit,fl_progressive,dpr_2.0/assets/images/2020/11/9/bb420f64-fea8-4d66-87b7-03c7f7fb6e621604906587041-43-Banner-Uniquely-Myntra.jpg',
         'https://assets.myntassets.com/f_webp,w_490,c_limit,fl_progressive,dpr_2.0/assets/images/2020/11/9/1ac6219d-54b8-484e-813b-c239bb9880141604906587091-44-Banner-ActiveWearStore.jpg'
     ]
-    
-    const sec7Img=[
+
+    const sec7Img = [
         'https://assets.myntassets.com/f_webp,w_163,c_limit,fl_progressive,dpr_2.0/assets/images/2020/11/9/df528847-96b6-48cc-9104-064ad788804c1604906588040-61-BudgetBuys-TshirtsUnder499.jpg',
         'https://assets.myntassets.com/f_webp,w_163,c_limit,fl_progressive,dpr_2.0/assets/images/2020/11/9/e42fbdcd-31cd-43de-b1eb-0f3f4351e08d1604906588093-62-BudgetBuys-DressesUnder799.jpg',
         'https://assets.myntassets.com/f_webp,w_163,c_limit,fl_progressive,dpr_2.0/assets/images/2020/11/9/1abffc52-836d-4778-a034-a851b45e43c31604906588162-63-BudgetBuys-EthnicWearUnder999.jpg',
@@ -75,8 +75,8 @@ const Kids = () => {
         'https://assets.myntassets.com/f_webp,w_163,c_limit,fl_progressive,dpr_2.0/assets/images/2020/11/9/8430d7ff-a2f4-496a-bf90-b1c3a8cc7d231604906588272-65-BudgetBuys-ValuePacksUnder799.jpg',
         'https://assets.myntassets.com/f_webp,w_163,c_limit,fl_progressive,dpr_2.0/assets/images/2020/11/9/af518c66-a610-4ab7-91bf-b343b9c1b8501604906588337-66-BudgetBuys-FootwearUnder699.jpg'
     ]
-    
-    const sec8Img=[
+
+    const sec8Img = [
         'https://assets.myntassets.com/f_webp,w_196,c_limit,fl_progressive,dpr_2.0/assets/images/2021/7/19/00da8e7c-c7b2-4386-be22-29e6ce7f93491626685981220-Top-Nav_Life-Style.jpg',
         'https://assets.myntassets.com/f_webp,w_196,c_limit,fl_progressive,dpr_2.0/assets/images/2020/11/9/3b15613e-57c1-451c-bc7d-66ea2ba0066a1604906588521-69-MoreBrands-PepeJeans.jpg',
         'https://assets.myntassets.com/f_webp,w_196,c_limit,fl_progressive,dpr_2.0/assets/images/2020/11/9/aa944cdd-33ff-4576-988d-fe8310cf9db91604906588585-70-MoreBrands-HRXU17.jpg',
@@ -87,17 +87,19 @@ const Kids = () => {
         <div className='kids-comp'>
             <Carousel className='mt-5'>
                 {kidsCarousel.map((image, index) => (
-                    <Carousel.Item><img key={index} src={image} alt="Kids Wear" /></Carousel.Item>
+                    <Carousel.Item key={index}><img src={image} alt="Kids Wear" /></Carousel.Item>
                 ))}
             </Carousel>
 
             <section className="section1 mt-5">
                 <h4 className='container'>FAVOURITE BRANDS</h4>
                 <div className='d-flex justify-content-between mt-5 kid-sec1-box flex-wrap'>
-                    {sec1Img.map((image, index) => (
-                        <div key={index} className='box mb-3'>
-                            <img src={image} alt='Favourite Brands' />
-                        </div>
+                    {sec1Img.map((e, index) => (
+                        <Link to={'/listProduct/kids'} key={index}>
+                            <div key={index} className='box mb-3'>
+                                <img src={e} alt='Favourite Brands' />
+                            </div>
+                        </Link>
                     ))}
                 </div>
             </section>
@@ -105,10 +107,12 @@ const Kids = () => {
             <section className="section2 mt-5">
                 <h4 className='container'>Top Picks</h4>
                 <div className='d-flex justify-content-between mt-5 kid-sec2-box flex-wrap'>
-                    {sec2Img.map((image, index) => (
-                        <div key={index} className='box mb-3'>
-                            <img src={image} alt='Favourite Brands' />
-                        </div>
+                    {sec2Img.map((e, index) => (
+                        <Link to={'/listProduct/kids'} key={index}>
+                            <div key={index} className='box mb-3'>
+                                <img src={e} alt='Favourite Brands' />
+                            </div>
+                        </Link>
                     ))}
                 </div>
             </section>
@@ -116,10 +120,12 @@ const Kids = () => {
             <section className="section3 mt-5">
                 <h4 className='container'>Iconic Brands</h4>
                 <div className='d-flex justify-content-between mt-5 kid-sec3-box flex-wrap'>
-                    {sec3Img.map((image, index) => (
-                        <div key={index} className='box mb-3'>
-                            <img src={image} alt='Favourite Brands' />
-                        </div>
+                    {sec3Img.map((e, index) => (
+                        <Link to={'/listProduct/kids'} key={index}>
+                            <div key={index} className='box mb-3'>
+                                <img src={e} alt='Favourite Brands' />
+                            </div>
+                        </Link>
                     ))}
                 </div>
             </section>
@@ -127,10 +133,13 @@ const Kids = () => {
             <section className="section4 mt-5">
                 <h4 className='container'>Fashion & Essentials</h4>
                 <div className='d-flex justify-content-center mt-5 kid-sec4-box flex-wrap'>
-                    {sec4Img.map((image, index) => (
-                        <div key={index} className='box mb-3'>
-                            <img src={image} alt='Favourite Brands' />
-                        </div>
+                    {sec4Img.map((e, index) => (
+                        <Link to={'/listProduct/kids'} key={index}>
+                            <div key={index} className='box mb-3'>
+                                <img src={e} alt='Favourite Brands' />
+                            </div>
+                        </Link>
+
                     ))}
                 </div>
             </section>
@@ -138,10 +147,12 @@ const Kids = () => {
             <section className="section5 mt-5">
                 <h4 className='container'>EXPLORE MORE</h4>
                 <div className='d-flex justify-content-center mt-5 kid-sec5-box flex-wrap'>
-                    {sec5Img.map((el, index) => (
-                        <div key={index} className='box mb-3'>
-                            <img src={el} alt='Explore More' />
-                        </div>
+                    {sec5Img.map((e, index) => (
+                        <Link to={'/listProduct/kids'} key={index}>
+                            <div key={index} className='box mb-3'>
+                                <img src={e} alt='Favourite Brands' />
+                            </div>
+                        </Link>
                     ))}
                 </div>
             </section>
@@ -157,10 +168,12 @@ const Kids = () => {
             <section className='section7 mt-5'>
                 <h4 className='container'>BUDGET BUY</h4>
                 <div className='d-flex justify-content-between mt-5 kid-sec7-box flex-wrap'>
-                    {sec7Img.map((e,index)=>(
-                        <div className='box mb-3' key={index}>
-                            <img src={e} alt="" />
-                        </div>
+                    {sec7Img.map((e, index) => (
+                        <Link to={'/listProduct/kids'} key={index}>
+                            <div key={index} className='box mb-3'>
+                                <img src={e} alt='Favourite Brands' />
+                            </div>
+                        </Link>
                     ))}
                 </div>
             </section>
@@ -168,10 +181,12 @@ const Kids = () => {
             <section className='section8 mt-5 pb-5'>
                 <h4 className='container'>BUDGET BUY</h4>
                 <div className='d-flex justify-content-between mt-5 kid-sec8-box flex-wrap'>
-                    {sec8Img.map((e,index)=>(
-                        <div className='box mb-3' key={index}>
-                            <img src={e} alt="" />
-                        </div>
+                    {sec8Img.map((e, index) => (
+                        <Link to={'/listProduct/kids'} key={index}>
+                            <div key={index} className='box mb-3'>
+                                <img src={e} alt='Favourite Brands' />
+                            </div>
+                        </Link>
                     ))}
                 </div>
             </section>

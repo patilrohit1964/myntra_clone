@@ -24,7 +24,7 @@ const Navbarnav = () => {
         <div>
             <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary text-center" style={{ boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px" }}>
                 <Container>
-                    <Navbar.Brand href="#home"><img src="./myntra_logo.png" alt="" height={50} width={50} /></Navbar.Brand>
+                    <Navbar.Brand ><img src="./myntra_logo.png" alt="" height={50} width={50} /></Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto w-50 routes-link d-flex justify-content-around">
@@ -39,34 +39,34 @@ const Navbarnav = () => {
                             aria-label="Search"
                         />
                         <Nav className='d-flex align-items-center'>
-                            <Nav.Link href="#deets">
+                            <Link>
                                 <NavDropdown id="collapsible-nav-dropdown" title={<FaRegUserCircle/>}>
-                                    <NavDropdown.Item href="#action/3.2">
+                                    <Link>
                                         <h6><b>Welcome</b></h6>
                                         <span>To access account and manage orders</span><br />
-                                        <button className='btn text-danger border'>LOGIN / SIGNUP</button>
-                                    </NavDropdown.Item> <hr />
-                                    <NavDropdown.Item href="#action/3.1">Orders</NavDropdown.Item>
-                                    <NavDropdown.Item href="#action/3.3">Wishlist</NavDropdown.Item>
+                                        <Link to={'/login'}><button className='btn text-danger border'>LOGIN / SIGNUP</button></Link>
+                                    </Link> <hr />
+                                    <Link >Orders</Link>
+                                    <Link >Wishlist</Link>
                                     <hr />
-                                    <NavDropdown.Item href="#action/3.4">Gift Cards</NavDropdown.Item>
-                                    <NavDropdown.Item href="#action/3.4">Contact Us</NavDropdown.Item>
-                                    <NavDropdown.Item href="#action/3.4">Myntra Insider</NavDropdown.Item> <hr />
-                                    <NavDropdown.Item href="#action/3.4">Myntra credits</NavDropdown.Item>
-                                    <NavDropdown.Item href="#action/3.4">Coupon</NavDropdown.Item>
-                                    <NavDropdown.Item href="#action/3.4">Saved Cards</NavDropdown.Item>
-                                    <NavDropdown.Item href="#action/3.4">Saved VPA</NavDropdown.Item>
-                                    <NavDropdown.Item href="#action/3.4">Saved Addresses</NavDropdown.Item>
+                                    <Link>Gift Cards</Link>
+                                    <Link>Contact Us</Link>
+                                    <Link>Myntra Insider</Link> <hr />
+                                    <Link>Myntra credits</Link>
+                                    <Link>Coupon</Link>
+                                    <Link>Saved Cards</Link>
+                                    <Link>Saved VPA</Link>
+                                    <Link>Saved Addresses</Link>
                                 </NavDropdown>
-                            </Nav.Link>
-                            <Nav.Link eventKey={2} href="#memes">
+                            </Link>
+                            <Link className='me-3 ms-3'>
                                 <FaRegHeart /><br />
                                 WishList
-                            </Nav.Link>
-                            <Nav.Link eventKey={2} href="#memes">
+                            </Link>
+                            <Link to={'/bag'} className='m-0 p-0'>
                                 <FaShoppingBag /><br />
                                 Bag
-                            </Nav.Link>
+                            </Link>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

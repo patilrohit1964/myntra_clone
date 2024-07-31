@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import Carousel from 'react-bootstrap/Carousel';
 const Women = () => {
     const carouselImg = [
@@ -45,7 +46,7 @@ const Women = () => {
         'https://assets.myntassets.com/f_webp,w_196,c_limit,fl_progressive,dpr_2.0/assets/images/2020/8/25/f2fdda02-423c-4f11-8f1b-618ba807e5841598348260323-H_M.jpg'
     ]
 
-    const sec4Img=[
+    const sec4Img = [
         'https://assets.myntassets.com/f_webp,w_196,c_limit,fl_progressive,dpr_2.0/assets/images/2020/8/19/f7585d6d-78ee-42bd-baf2-07eefada7fb31597840566666-Content-westerncasual-color-moss.jpg',
         'https://assets.myntassets.com/f_webp,w_196,c_limit,fl_progressive,dpr_2.0/assets/images/2020/8/19/d7f59b96-8e15-470e-a47b-5d5005e4273f1597840566776-Content-westerncasual-mostselling-modblocking.jpg',
         'https://assets.myntassets.com/f_webp,w_196,c_limit,fl_progressive,dpr_2.0/assets/images/2020/8/19/8116410f-af2c-4980-95ef-04a4162092491597840566722-Content-westerncasual-color-preppyred.jpg',
@@ -53,7 +54,7 @@ const Women = () => {
         'https://assets.myntassets.com/f_webp,w_196,c_limit,fl_progressive,dpr_2.0/assets/images/2020/7/28/a6d9d467-d37e-4428-b2dd-a9f45756c1fc1595936000278-Content-westernwear-lifestyle-Ecovero.jpg'
     ]
 
-    const sec5Img=[
+    const sec5Img = [
         'https://assets.myntassets.com/f_webp,w_196,c_limit,fl_progressive,dpr_2.0/assets/images/2020/8/19/f0397d0f-9c2a-4c87-956e-9896b615b3061597840342772-Content-ethnicwear-trend-printparadise.jpg',
         'https://assets.myntassets.com/f_webp,w_196,c_limit,fl_progressive,dpr_2.0/assets/images/2020/8/19/87b0957c-41f7-4522-9f30-f69087a0dce61597840342593-Content-ethnicwear-color-mustard.jpg',
         'https://assets.myntassets.com/f_webp,w_196,c_limit,fl_progressive,dpr_2.0/assets/images/2020/8/19/2ff5c4e9-da10-4d12-9aae-86c38f4c281a1597840342549-Content-ethnicwear-brand-fusiondress.jpg',
@@ -61,7 +62,7 @@ const Women = () => {
         'https://assets.myntassets.com/f_webp,w_196,c_limit,fl_progressive,dpr_2.0/assets/images/2020/7/28/e4fe9b08-9d0a-4349-868f-6ac5aa7123ed1595935030800-Content-ethnicwear-trend-Bsummerreadyethnicdresses.jpg'
     ]
 
-    const sec6Img=[
+    const sec6Img = [
         'https://assets.myntassets.com/f_webp,w_196,c_limit,fl_progressive,dpr_2.0/assets/images/2020/8/19/48f02c04-8b83-495b-a2df-27ed8a9837a61597840566563-Content-sportswear-mostselling-skechers.png',
         'https://assets.myntassets.com/f_webp,w_196,c_limit,fl_progressive,dpr_2.0/assets/images/2020/8/19/7c0ac6d4-94aa-4c56-b6e7-86f7367a1ead1597841103213-Content-sportswear-brand-UA.png',
         'https://assets.myntassets.com/f_webp,w_196,c_limit,fl_progressive,dpr_2.0/assets/images/2020/7/28/ffc6f4f2-9541-47a2-ba12-e3c68c9407461595935799402-Content-sportswear-Women-Under-Armour-daily-wear-Joggers.jpg',
@@ -69,7 +70,7 @@ const Women = () => {
         'https://assets.myntassets.com/f_webp,w_196,c_limit,fl_progressive,dpr_2.0/assets/images/2020/7/28/0faf749f-5450-4550-8b48-54b2d2e311b51595935799329-Content-sportswear-Women-Running.jpg'
     ]
 
-    const sec7Img=[
+    const sec7Img = [
         'https://assets.myntassets.com/f_webp,w_196,c_limit,fl_progressive,dpr_2.0/assets/images/retaillabs/2020/8/20/cb3b10a6-a216-4f20-a4f1-81828bc923581597912691297-Content-footwear-trend-sneakerswomen.jpg',
         'https://assets.myntassets.com/f_webp,w_196,c_limit,fl_progressive,dpr_2.0/assets/images/2020/8/19/bb73b79f-ff6e-4472-b9da-33f5747c6d861597840342909-Content-footwear-occasion-classics.jpg',
         'https://assets.myntassets.com/f_webp,w_196,c_limit,fl_progressive,dpr_2.0/assets/images/2020/8/19/1fb4a81c-d5e2-4e46-93d8-b6a87ca92c021597840342817-Content-footwear-color-colorblock.jpg',
@@ -77,7 +78,7 @@ const Women = () => {
         'https://assets.myntassets.com/f_webp,w_196,c_limit,fl_progressive,dpr_2.0/assets/images/2020/7/28/1b444433-164b-4551-9749-d2915a286ee01595935221365-Content-Footwear-Women-Comfort-Wear.jpg'
     ]
 
-    const sec8Img=[
+    const sec8Img = [
         'https://assets.myntassets.com/f_webp,w_196,c_limit,fl_progressive,dpr_2.0/assets/images/2020/8/19/225f77f5-c299-4849-8586-3ed41b70b1f91597840217917-Content-accessories-brand-imittire.png',
         'https://assets.myntassets.com/f_webp,w_196,c_limit,fl_progressive,dpr_2.0/assets/images/2020/8/19/b5fb5332-cad0-4c04-bd5e-70189f5efef01597840218056-Content-accessories-mostselling-mangalsutra.png',
         'https://assets.myntassets.com/f_webp,w_196,c_limit,fl_progressive,dpr_2.0/assets/images/2020/8/19/4dbcc869-ba34-43df-8348-56c7816363c41597840218100-Content-accessories-trend-handcraftedjewel.png',
@@ -98,9 +99,11 @@ const Women = () => {
                 <h4>Biggest Deals On Top Brands</h4>
                 <div className='d-flex justify-content-between flex-wrap mt-5 women-sec1-box'>
                     {sec1Img.map((e, index) => (
-                        <div key={index} className='box mb-3'>
-                            <img src={e} alt='internet error' />
-                        </div>
+                        <Link to={'/listProduct/women'} key={index}>
+                            <div key={index} className='box'>
+                                <img src={e} alt='' />
+                            </div>
+                        </Link>
                     ))}
                 </div>
             </section>
@@ -109,9 +112,11 @@ const Women = () => {
                 <h4>Categories To Bag</h4>
                 <div className='d-flex justify-content-between flex-wrap mt-5 women-sec2-box'>
                     {sec2Img.map((e, index) => (
-                        <div key={index} className='box mb-3'>
-                            <img src={e} alt='internet error' />
-                        </div>
+                        <Link to={'/listProduct/women'} key={index}>
+                            <div key={index} className='box'>
+                                <img src={e} alt='' />
+                            </div>
+                        </Link>
                     ))}
                 </div>
             </section>
@@ -120,9 +125,11 @@ const Women = () => {
                 <h4>Explore Top Brands</h4>
                 <div className='d-flex justify-content-between flex-wrap mt-5 women-sec3-box'>
                     {sec3Img.map((e, index) => (
-                        <div key={index} className='box mb-3'>
-                            <img src={e} alt='internet error' />
-                        </div>
+                        <Link to={'/listProduct/women'} key={index}>
+                            <div key={index} className='box'>
+                                <img src={e} alt='' />
+                            </div>
+                        </Link>
                     ))}
                 </div>
             </section>
@@ -131,9 +138,11 @@ const Women = () => {
                 <h4>Trending In Western Wear</h4>
                 <div className='d-flex justify-content-between flex-wrap mt-5 women-sec4-box'>
                     {sec4Img.map((e, index) => (
-                        <div key={index} className='box mb-3'>
-                            <img src={e} alt='internet error' />
-                        </div>
+                        <Link to={'/listProduct/women'} key={index}>
+                            <div key={index} className='box'>
+                                <img src={e} alt='' />
+                            </div>
+                        </Link>
                     ))}
                 </div>
             </section>
@@ -142,9 +151,11 @@ const Women = () => {
                 <h4>Trending In Indian Wear</h4>
                 <div className='d-flex justify-content-between flex-wrap mt-5 women-sec5-box'>
                     {sec5Img.map((e, index) => (
-                        <div key={index} className='box mb-3'>
-                            <img src={e} alt='internet error' />
-                        </div>
+                        <Link to={'/listProduct/women'} key={index}>
+                            <div key={index} className='box'>
+                                <img src={e} alt='' />
+                            </div>
+                        </Link>
                     ))}
                 </div>
             </section>
@@ -153,9 +164,11 @@ const Women = () => {
                 <h4>Trending In Sports Wear</h4>
                 <div className='d-flex justify-content-between flex-wrap mt-5 women-sec6-box'>
                     {sec6Img.map((e, index) => (
-                        <div key={index} className='box mb-3'>
-                            <img src={e} alt='internet error' />
-                        </div>
+                        <Link to={'/listProduct/women'} key={index}>
+                            <div key={index} className='box'>
+                                <img src={e} alt='' />
+                            </div>
+                        </Link>
                     ))}
                 </div>
             </section>
@@ -164,9 +177,11 @@ const Women = () => {
                 <h4>Trending In Footwear</h4>
                 <div className='d-flex justify-content-between flex-wrap mt-5 women-sec7-box'>
                     {sec7Img.map((e, index) => (
-                        <div key={index} className='box mb-3'>
-                            <img src={e} alt='internet error' />
-                        </div>
+                        <Link to={'/listProduct/women'} key={index}>
+                            <div key={index} className='box'>
+                                <img src={e} alt='' />
+                            </div>
+                        </Link>
                     ))}
                 </div>
             </section>
@@ -175,9 +190,11 @@ const Women = () => {
                 <h4>Trending In Accessories</h4>
                 <div className='d-flex justify-content-between flex-wrap mt-5 women-sec8-box'>
                     {sec8Img.map((e, index) => (
-                        <div key={index} className='box mb-3'>
-                            <img src={e} alt='internet error' />
-                        </div>
+                        <Link to={'/listProduct/women'} key={index}>
+                            <div key={index} className='box'>
+                                <img src={e} alt='' />
+                            </div>
+                        </Link>
                     ))}
                 </div>
             </section>

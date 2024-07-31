@@ -92,8 +92,8 @@ const Men = () => {
                 <h4>Biggest Deals On Top Brands</h4>
                 <div className='d-flex justify-content-center mt-5 flex-wrap'>
                     {sec1Img.map((e, index) => (
-                        <Link to={'/listProduct/men'}>
-                            <div key={index} className='box mb-2 me-2'>
+                        <Link to={'/listProduct/men'} key={index}>
+                            <div className='box mb-2 me-2'>
                                 <img className='img-fluid' src={e} alt='' />
                             </div>
                         </Link>
@@ -105,9 +105,11 @@ const Men = () => {
                 <h4>Categories To Bag</h4>
                 <div className='mt-5 d-flex justify-content-between flex-wrap'>
                     {sec2Img.map((e, index) => (
-                        <div key={index} className='box'>
-                            <img src={e} alt='' />
-                        </div>
+                        <Link to={'/listProduct/men'} key={index}>
+                            <div key={index} className='box'>
+                                <img src={e} alt='' />
+                            </div>
+                        </Link>
                     ))}
                 </div>
             </section>
@@ -116,9 +118,11 @@ const Men = () => {
                 <h4>Explore Top Brands</h4>
                 <div className='d-flex justify-content-between flex-wrap mt-5'>
                     {sec3Img.map((e, index) => (
-                        <div key={index} className='box'>
-                            <img src={e} alt='' />
-                        </div>
+                        <Link to={'/listProduct/men'} key={index}>
+                            <div key={index} className='box'>
+                                <img src={e} alt='' />
+                            </div>
+                        </Link>
                     ))}
                 </div>
             </section>
@@ -127,9 +131,11 @@ const Men = () => {
                 <h4>MYNTRA LUXE</h4>
                 <div className='d-flex justify-content-between mt-5 flex-wrap'>
                     {sec4Img.map((e, index) => (
-                        <div key={index} className='box'>
-                            <img src={e} alt='' />
-                        </div>
+                        <Link to={'/listProduct/men'} key={index}>
+                            <div key={index} className='box'>
+                                <img src={e} alt='' />
+                            </div>
+                        </Link>
                     ))}
                 </div>
             </section>
@@ -138,9 +144,11 @@ const Men = () => {
                 <h4>Trending In Indian Wear</h4>
                 <div className='d-flex justify-content-between mt-5 flex-wrap'>
                     {sec5Img.map((e, index) => (
-                        <div key={index} className='box'>
-                            <img src={e} alt='' />
-                        </div>
+                        <Link to={'/listProduct/men'} key={index}>
+                            <div key={index} className='box'>
+                                <img src={e} alt='' />
+                            </div>
+                        </Link>
                     ))}
                 </div>
             </section>
@@ -149,9 +157,11 @@ const Men = () => {
                 <h4>Trending In Sports Wear</h4>
                 <div className='d-flex justify-content-between mt-5 flex-wrap'>
                     {sec6Img.map((e, index) => (
-                        <div key={index} className='box'>
-                            <img src={e} alt='' />
-                        </div>
+                        <Link to={'/listProduct/men'} key={index}>
+                            <div key={index} className='box'>
+                                <img src={e} alt='' />
+                            </div>
+                        </Link>
                     ))}
                 </div>
             </section>
@@ -160,9 +170,11 @@ const Men = () => {
                 <h4>Trending In Footwear</h4>
                 <div className='d-flex justify-content-between mt-5 flex-wrap'>
                     {sec7Img.map((e, index) => (
-                        <div key={index} className='box'>
-                            <img src={e} alt='' />
-                        </div>
+                        <Link to={'/listProduct/men'} key={index}>
+                            <div key={index} className='box'>
+                                <img src={e} alt='' />
+                            </div>
+                        </Link>
                     ))}
                 </div>
             </section>
@@ -171,9 +183,11 @@ const Men = () => {
                 <h4>Trending In Accessories</h4>
                 <div className='d-flex justify-content-between mt-5 flex-wrap'>
                     {sec8Img.map((e, index) => (
-                        <div key={index} className='box'>
-                            <img src={e} alt='' />
-                        </div>
+                        <Link to={'/listProduct/men'} key={index}>
+                            <div key={index} className='box'>
+                                <img src={e} alt='' />
+                            </div>
+                        </Link>
                     ))}
                 </div>
             </section>

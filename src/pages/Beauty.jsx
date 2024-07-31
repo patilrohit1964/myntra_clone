@@ -145,7 +145,7 @@ const Beauty = () => {
                     <div className="d-flex justify-content-around flex-wrap align-items-center">
                         {data.length > 0 ? data.map((e, index) => (
                             <Card style={{ width: '15rem' }} className='mb-3 text-center' key={index}>
-                                <Link to={'/listProduct'}>
+                                <Link to={`/prDetail/${e.id}`}>
                                     <Card.Img src={e.image} alt={e.description} />
                                     <Card.Body>
                                         <span>{e.rating} <FaStar className='text-primary' /> | {e.ratingCount}</span>

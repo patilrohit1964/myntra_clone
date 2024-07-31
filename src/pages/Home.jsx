@@ -95,7 +95,7 @@ const Home = () => {
                 <Swiper slidesPerView={3} spaceBetween={30} freeMode={true} pagination={{clickable: true,}} modules={[FreeMode,]} className="mySwiper mt-5"
                 >
                     {sec1Img.map((e, index) => (
-                        <SwiperSlide key={index}><Link to={'/beauty'}><img src={e} alt="" /></Link></SwiperSlide>
+                        <SwiperSlide key={index}><Link to={'/listProduct/men'}><img src={e} alt="" /></Link></SwiperSlide>
                     ))}
                 </Swiper>
             </section>
@@ -113,7 +113,7 @@ const Home = () => {
                     className="mySwiper mt-5"
                 >
                     {sec2Img.map((e, index) => (
-                        <SwiperSlide key={index}><Link to={'/listProduct/nailPolish'}><img src={e} alt="" /></Link></SwiperSlide>
+                        <SwiperSlide key={index}><Link to={'/listProduct/men'}><img src={e} alt="" /></Link></SwiperSlide>
                     ))}
                 </Swiper>
             </section>
@@ -122,7 +122,7 @@ const Home = () => {
                 <h3 className='mt-5 mb-5'>SHOP BY CATEGORY</h3>
                 <div className="boxes d-flex justify-content-center flex-wrap">
                     {sec3Img.map((e, index) => (
-                        <div className='box' key={index}><Link to={'beauty'}><img src={e} alt="" /></Link></div>
+                        <div className='box' key={index}><Link to={'/listProduct/men'}><img src={e} alt="" /></Link></div>
                     ))}
                 </div>
 
