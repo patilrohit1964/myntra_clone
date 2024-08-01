@@ -3854,6 +3854,36 @@
       "product_discountPercentage": "(33% OFF)"
     }
   ],
-  "cart": [],
+  "cart": [
+    {
+      "rating": "5",
+      "ratingCount": "2.2k",
+      "product-waterMark": "",
+      "product-base href": "https://www.myntra.com/perfume/cfs/cfs-set-of-stylus-femme-pink-eau-de-parfum---100ml--wild-sandal-apparel-perfume---25ml/30016524/buy",
+      "image": "https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/30016524/2024/6/22/2ee32676-c02b-4672-919b-ab75fdb6ac321719032264678CFSStylusPink100mlEauDeParfumWildSandal25mlLongLastingPerfum2.jpg",
+      "title": "CFS",
+      "id": 7,
+      "description": "Set of 2 Long Lasting Perfumes",
+      "product-sizeInventoryPresent": "100-150 ML",
+      "product-discountedPrice": "Rs. 988",
+      "price": "Rs. 1098",
+      "product-discountPercentage": "(10% OFF)"
+    },
+    {
+      "id": 236,
+      "rating": "5.3",
+      "ratingCount": "6.34k",
+      "product_separator": "",
+      "product_base_href": "https://www.myntra.com/tops/chicco/chicco-infant-girls-printed-round-neck-cotton-top/21904532/buy",
+      "image": "https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/21904532/2023/2/10/79e33c48-1153-479a-9ba3-d7e4e82952861675967408600ChiccoGirlsWhitePrintedAppliqueT-shirt1.jpg",
+      "title": "Infant Girls Cotton Top",
+      "product_sizeInventoryPresent": "0-3M",
+      "product_discountedPrice": "Rs. 571",
+      "price": "Rs. 1299",
+      "product_discountPercentage": "(56% OFF)",
+      "description": "Only Few Left!",
+      "category": "kids"
+    }
+  ],
   "bag": []
 }
