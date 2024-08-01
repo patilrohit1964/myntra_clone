@@ -96,7 +96,6 @@ const Navbarnav = () => {
                                     </div>
                                 </NavLink>
                             }
-
                             <NavLink className='me-3 ms-3' to={'/wishlist'}>
                                 <FaRegHeart /><br />
                                 WishList
