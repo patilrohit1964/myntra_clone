@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import { FaSearch, FaStar, FaAngleRight, FaAngleLeft } from "react-icons/fa";
+import React, { useContext, useEffect, useState } from 'react'
+import { FaSearch, FaStar, FaAngleRight, FaAngleLeft, FaRegHeart } from "react-icons/fa";
 import { IoMdArrowDropdown } from "react-icons/io";
 import Form from 'react-bootstrap/Form';
 import axios from 'axios'
@@ -8,16 +8,23 @@ import Button from 'react-bootstrap/Button'
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../firebase/firebase';
 import { Link } from 'react-router-dom';
+import Loading from '../components/Loading';
+import { ContextData } from '../context/ContextApp';
+
 const Beauty = () => {
+    // context api data
+    const {handleLoading,loading}=useContext(ContextData);
+    //----------------------------------
     const [data, setData] = useState([]);
     const [page, setPage] = useState(1);
     const [selectVal, setSelectVal] = useState(null);
     const [checkboxVal, setCheckBox] = useState(null);
     const [startVal, setStart] = useState(NaN);
     const [end, setEnd] = useState(1000);
+    // -----------------------------------
     // fetch data from json
-    function getData() {
-        axios.get("http://localhost:3000/beautyProducts", {
+    async function getData() {
+        let result = axios.get("http://localhost:3000/beautyProducts", {
             params: {
                 _page: page,
                 _limit: 10,
@@ -26,11 +33,11 @@ const Beauty = () => {
                 category: checkboxVal,
             }
         })
-            .then(e => setData(e.data))
-            .catch(e => console.log(e))
+        let finalResult = (await result).data;
+        setData(finalResult);
+        handleLoading(false);
     };
-
-
+    // -----------------------------------
     // event handlings
     // // tp firestore
     // async function firestoreData(){
@@ -41,7 +48,8 @@ const Beauty = () => {
         // firestoreData();
         getData();
     }, [page, selectVal, checkboxVal]);
-    return (
+    // ---------------------------------
+    return loading ? <Loading /> : (
         <div className='beauty-comp'>
             <div className='d-flex'>
                 <aside>
@@ -152,6 +160,11 @@ const Beauty = () => {
                                         <Card.Title className='pt-2'>{e.title}</Card.Title>
                                         <Card.Text className='text-secondary m-0'>{e.description}</Card.Text><br />
                                         <Card.Text><b>{e.price}</b></Card.Text>
+                                        <div className="cbhover">
+                                            <button className='btn border-secondary bg-danger text-white'>
+                                                <FaRegHeart /> Wishlist
+                                            </button>
+                                        </div>
                                     </Card.Body>
                                 </Link>
                             </Card>
@@ -160,7 +173,7 @@ const Beauty = () => {
                     <div className='data-btns d-flex justify-content-center mt-5 align-items-center w-50 bg- m-auto'>
                         <button className="btn btn-secondary p-2 me-2" onClick={(e) => setPage(page - 1)} disabled={page == 1}>Previous</button>
                         <h4>{page}</h4>
-                        <button className="btn btn-secondary p-2 ms-2" onClick={(e) => setPage(page + 1)} disabled={data.length==0}>Next</button>
+                        <button className="btn btn-secondary p-2 ms-2" onClick={(e) => setPage(page + 1)} disabled={data.length == 0}>Next</button>
                     </div>
                 </div>
             </div>

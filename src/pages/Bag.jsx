@@ -1,8 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import Footer from '../components/Footer';
+import { ContextData } from '../context/ContextApp';
+import Loading from '../components/Loading';
 
 const Bag = () => {
     const auth = localStorage.getItem('number');
-    return (
+    const { loading, handleLoading } = useContext(ContextData);
+    return loading ? <Loading /> : (
         <div className='bag-comp'>
             {<div className='d-flex justify-content-center mt-5 text-center align-items-center text-secondary'>
                 <div>

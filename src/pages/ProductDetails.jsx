@@ -1,40 +1,56 @@
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import { FaShoppingBag, FaBookmark } from "react-icons/fa";
+import Loading from '../components/Loading';
+import { ContextData } from '../context/ContextApp';
 const ProductDetails = () => {
 
+    // context data
+    const { handleLoading, loading } = useContext(ContextData);
+    // --------------------------------------------------
     const [data, setData] = useState('');
     const { id } = useParams();
+    const auth = localStorage.getItem('number');
+    // -----------------------------------------------
     async function ProductGetId() {
         let data = axios.get(`http://localhost:3000/beautyProducts/${id}`);
         let result = (await data).data;
         setData(result);
+        handleLoading(false);
     }
 
     // add item in wishlist
-    async function addItem(){
-        let result=axios.post(`http://localhost:3000/cart`,data,{
-            headers:{
-                'Content-Type': 'application/json'
+    async function addItem() {
+        if (auth) {
+            let result = axios.post(`http://localhost:3000/cart`, data, {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            let finalResult = await result;
+            if (finalResult.status == 201) {
+                alert('added successfully');
+            } else {
+                alert('some error try after few minutes');
             }
-        })
-        let finalResult=await result;
-        if(finalResult.status==201){
-            alert('added successfully');
+        } else {
+            alert('Please login to add to wishlist');
         }
     }
-
+    // --------------------------------------
     useEffect(() => {
         ProductGetId();
     }, []);
-    return (
+    // -------------------------------------
+    return loading ? <Loading /> : (
         <div className='prdetail-comp'>
             <div className='d-flex container justify-content-between prdetail-parent mt-5'>
                 <div className='prImage border'>
-                    <img src={data.image} alt="" />
+                    <img src={data.image} alt={data.description} />
                 </div>
                 <div className='prDetails text-center pt-5 border'>
+
                     <h3>{data.title}</h3>
                     <h4 className='text-secondary pt-2'>{data.description}</h4>
                     <h6 className='mt-4'>{data.price}</h6>

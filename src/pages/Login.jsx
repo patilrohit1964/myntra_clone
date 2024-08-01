@@ -1,17 +1,24 @@
 // import { signInWithPopup } from 'firebase/auth'
 import React, { useState } from 'react'
 import Form from 'react-bootstrap/Form';
+import { useNavigate } from 'react-router-dom';
 // import GoogleButton from 'react-google-button'
 // import { auth, provider } from '../firebase/firebase'
 // import Privatecomp from '../private/Privatecomp'
 const Login = () => {
     const [userContact, setContact] = useState('');
     const [valid, setValid] = useState(false);
+    const navigate=useNavigate();
     function handlelogin(e) {
         e.preventDefault();
         if (!+userContact || userContact.length <10) {
             setValid(true);
             return 0;
+        }else{
+            setValid(false);
+            localStorage.setItem('number',JSON.stringify(userContact));
+            alert('login successfully');
+            navigate('/wishlist');
         }
         // signInWithPopup(auth, provider).then(e => {
         //     console.log(e.auth);

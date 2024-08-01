@@ -1,16 +1,20 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { FaStar, FaRegHeart } from 'react-icons/fa'
 import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form'
+import Loading from '../components/Loading';
+import { ContextData } from '../context/ContextApp';
 const ListProduct = () => {
-
+    // context data
+    const { handleLoading, loading } = useContext(ContextData);
+    // ----------------------------------------------
     const [data, setData] = useState([]);
     const [sortSelect, setSelect] = useState(null);
     const { category } = useParams();
     const [search, setSearch] = useState(null);
-
+    // ----------------------------------------------
     async function getDataWithCategory() {
         let data = axios.get(`http://localhost:3000/beautyProducts`, {
             params: {
@@ -22,13 +26,14 @@ const ListProduct = () => {
         })
         let result = (await data).data;
         setData(result);
+        handleLoading(false);
     }
 
     useEffect(() => {
         getDataWithCategory();
     }, [sortSelect, search]);
 
-    return (
+    return loading ? <Loading /> : (
         <div className='listProduct-comp'>
             <div className='d-flex align-items-center justify-content-center mt-4'>
                 <Form.Control type='search' placeholder='type here for search products' onChange={(e) => setSearch(e.target.value)} className='w-25' />

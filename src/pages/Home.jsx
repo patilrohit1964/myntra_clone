@@ -11,6 +11,7 @@ import './slider.css';
 import { Pagination, Navigation, FreeMode } from 'swiper/modules';
 import { Link } from 'react-router-dom';
 const Home = () => {
+
     const carouselImg = [
         './slider1.webp',
         './slider2.webp',

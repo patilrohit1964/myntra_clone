@@ -3,6 +3,16 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+/* spinners styling */
+.loading-spinners{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+/* spinners styling end */
+
 a{
   text-decoration: none;
   color: black;
