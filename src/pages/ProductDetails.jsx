@@ -14,7 +14,7 @@ const ProductDetails = () => {
     const auth = localStorage.getItem('number');
     // -----------------------------------------------
     async function ProductGetId() {
-        let data = axios.get(`http://localhost:3000/beautyProducts/${id}`);
+        let data = axios.get(`https://myntra-backend-5dfe.onrender.com/beautyProducts/${id}`);
         let result = (await data).data;
         setData(result);
         handleLoading(false);
@@ -23,7 +23,7 @@ const ProductDetails = () => {
     // add item in wishlist
     async function addItem() {
         if (auth) {
-            let result = axios.post(`http://localhost:3000/cart`, data, {
+            let result = axios.post(`https://myntra-backend-5dfe.onrender.com/cart`, data, {
                 headers: {
                     'Content-Type': 'application/json'
                 }

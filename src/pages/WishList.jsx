@@ -25,7 +25,7 @@ const WishList = () => {
     };
     // fetch wisht list data
     async function fetchWishlistData() {
-        let fetchData = axios.get('http://localhost:3000/cart');
+        let fetchData = axios.get('https://myntra-backend-5dfe.onrender.com/cart');
         let result = (await fetchData).data;
         setData(result);
         handleLoading(false);
@@ -33,12 +33,12 @@ const WishList = () => {
 
     // delete item from wishlist
     async function deleteCard(id) {
-        let fetchData = axios.delete(`http://localhost:3000/cart/${id}`);
+        let fetchData = axios.delete(`https://myntra-backend-5dfe.onrender.com/cart/${id}`);
         let result = await fetchData;
-        if (result.statusText) {
-            alert("Remove Data From Wishlist Successfully");
-            fetchWishlistData();
-        }
+        // if (result.statusText) {
+        alert("Remove Data From Wishlist Successfully");
+        fetchWishlistData();
+        // }
     }
     // ------------------------------------------------
     useEffect(() => {

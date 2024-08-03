@@ -24,7 +24,7 @@ const Beauty = () => {
     // -----------------------------------
     // fetch data from json
     async function getData() {
-        let result = axios.get("http://localhost:3000/beautyProducts", {
+        let result = axios.get("https://myntra-backend-5dfe.onrender.com/beautyProducts", {
             params: {
                 _page: page,
                 _limit: 10,

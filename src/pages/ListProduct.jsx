@@ -16,7 +16,7 @@ const ListProduct = () => {
     const [search, setSearch] = useState(null);
     // ----------------------------------------------
     async function getDataWithCategory() {
-        let data = axios.get(`http://localhost:3000/beautyProducts`, {
+        let data = axios.get(`https://myntra-backend-5dfe.onrender.com/beautyProducts`, {
             params: {
                 category: category,
                 _sort: "price",
