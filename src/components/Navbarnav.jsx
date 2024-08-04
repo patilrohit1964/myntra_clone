@@ -96,14 +96,14 @@ const Navbarnav = () => {
                                     </div>
                                 </NavLink>
                             }
-                            <NavLink className='me-3 ms-3' to={'/wishlist'}>
+                            <NavLink className='ms-3' to={'/wishlist'}>
                                 <FaRegHeart /><br />
                                 WishList
                             </NavLink>
-                            <NavLink to={'/bag/:id'} className='m-0 p-0'>
+                            {/* <NavLink to={'/bag/:id'} className='m-0 p-0'>
                                 <FaShoppingBag /><br />
                                 Bag
-                            </NavLink>
+                            </NavLink> */}
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
