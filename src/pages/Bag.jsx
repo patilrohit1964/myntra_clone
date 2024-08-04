@@ -19,11 +19,12 @@ const Bag = () => {
         const fetchBagData = axios.get(`https://myntra-backend-5dfe.onrender.com/beautyProducts/${id}`)
         const result = (await fetchBagData).data;
         setIdData(result);
+        handleLoading(false);
     }
     useEffect(() => {
         getDataFromBag();
     }, []);
-    return (
+    return loading ?<Loading/> :(
         <div className='bag-comp'>
             {confirmOrder ? <Card style={{ width: '20rem' }} className='mt-3 text-center container'>
                 <Card.Img src={dataId.image} alt={dataId.description} />
