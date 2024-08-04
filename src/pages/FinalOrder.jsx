@@ -25,7 +25,7 @@ const FinalOrder = () => {
                 :
                 <div>
                     <img src={image} alt="" height={550} width={1000} /><br />
-                    <button className='btn btn-danger d-inline-block mt-3' onClick={()=>navigate('/')}>Go To Wishlist</button>
+                    <button className='btn btn-danger d-inline-block mt-3' onClick={()=>navigate('/wishlist')}>Go To Wishlist</button>
                 </div>
             }
         </div>
