@@ -14,7 +14,7 @@ const WishList = () => {
     const { handleLoading, loading } = useContext(ContextData);
     // -------------------------------------------
     const [data, setData] = useState([]);
-    
+
 
     // fetch wisht list data
     async function fetchWishlistData() {
@@ -26,12 +26,17 @@ const WishList = () => {
 
     // delete item from wishlist
     async function deleteCard(id) {
-        let fetchData = axios.delete(`https://myntra-backend-5dfe.onrender.com/beautyProdcuts/${id}`);
-        let result = await fetchData;
-        // if (result.statusText) {
-        alert("Remove Data From Wishlist Successfully");
-        fetchWishlistData();
-        // }
+        try {
+            let fetchData = axios.delete(`https://myntra-backend-5dfe.onrender.com/cart/${id}`);
+            let result = await fetchData;
+            if (result.status == 200) {
+                alert("Remove Data From Wishlist Successfully");
+                fetchWishlistData();
+            }
+        }
+        catch (err) {
+            console.log(err);
+        }
     }
     // ------------------------------------------------
     useEffect(() => {
