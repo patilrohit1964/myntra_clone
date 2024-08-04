@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 import { FaStar } from 'react-icons/fa';
 import Button from 'react-bootstrap/Button';
@@ -14,15 +14,8 @@ const WishList = () => {
     const { handleLoading, loading } = useContext(ContextData);
     // -------------------------------------------
     const [data, setData] = useState([]);
-    const [show, setShow] = useState(false);
-    const handleClose = (id) => {
-        // console.log(id);
-        setShow(false);
-    };
-    const handleShow = (id) => {
-        setShow(true);
-        console.log(id);
-    };
+    
+
     // fetch wisht list data
     async function fetchWishlistData() {
         let fetchData = axios.get('https://myntra-backend-5dfe.onrender.com/cart');
@@ -33,7 +26,7 @@ const WishList = () => {
 
     // delete item from wishlist
     async function deleteCard(id) {
-        let fetchData = axios.delete(`https://myntra-backend-5dfe.onrender.com/cart/${id}`);
+        let fetchData = axios.delete(`https://myntra-backend-5dfe.onrender.com/beautyProdcuts/${id}`);
         let result = await fetchData;
         // if (result.statusText) {
         alert("Remove Data From Wishlist Successfully");
@@ -65,34 +58,19 @@ const WishList = () => {
                                     <Card.Text className='text-secondary m-0'>{e.description}</Card.Text><br />
                                     <Card.Text><b>{e.price}</b></Card.Text>
                                     <div className='d-flex justify-content-between'>
-                                        <Button variant="danger" onClick={() => handleShow(e.id)}>
-                                            Move to Bag
+                                        <Button variant="danger">
+                                            <NavLink to={`/bag/${e.id}`} className='text-white'>Move To Bag</NavLink>
                                         </Button>
                                         <Button variant="danger" onClick={() => deleteCard(e.id)}>
                                             Delete
                                         </Button>
                                     </div>
-                                    <Modal show={show} onClick={() => setShow(false)} className='h-50'>
-                                        <Modal.Header closeButton>
-                                            <div className='d-flex justify-content-between w-75'>
-                                                <img src={e.image} alt="" height={80} width={80} />
-                                                <div>
-                                                    <h5>{e.description}</h5>
-                                                    <h6>{e.price} <span className='text-danger'>{e.discountPercentage}</span></h6>
-                                                </div>
-                                            </div>
-                                        </Modal.Header>
-                                        <Modal.Body>
-                                            <Button variant='danger w-75 ms-5' onClick={() => handleClose(e.id)}>Done</Button>
-                                        </Modal.Body>
-                                    </Modal>
                                 </Card.Body>
                             </Card>
                         )) : <h1 className='text-center mt-5 ps-5'>Sorry Your Wishlist is Empty !!!</h1>}
                     </div>
                 </div>
             }
-
         </div>
     )
 }

@@ -100,7 +100,7 @@ const Navbarnav = () => {
                                 <FaRegHeart /><br />
                                 WishList
                             </NavLink>
-                            <NavLink to={'/bag'} className='m-0 p-0'>
+                            <NavLink to={'/bag/:id'} className='m-0 p-0'>
                                 <FaShoppingBag /><br />
                                 Bag
                             </NavLink>

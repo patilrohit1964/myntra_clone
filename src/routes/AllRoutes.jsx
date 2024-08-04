@@ -12,6 +12,8 @@ import ProductDetails from '../pages/ProductDetails';
 import Privatecomp from '../private/Privatecomp';
 import Bag from '../pages/Bag';
 import WishList from '../pages/WishList';
+import OrderComp from '../pages/OrderComp';
+import FinalOrder from '../pages/FinalOrder';
 
 const AllRoutes = () => {
   return (
@@ -26,8 +28,10 @@ const AllRoutes = () => {
         <Route path='/listProduct/:category' element={<ListProduct />}></Route>
         <Route path='/prDetail/:id' element={<ProductDetails />}></Route>
         <Route element={<Privatecomp />}>
-          <Route path='/bag' element={<Bag />}></Route>
+          <Route path='/bag/:id' element={<Bag />}></Route>
           <Route path='/wishlist' element={<WishList />}></Route>
+          <Route path='/orderComp' element={<OrderComp/>}></Route>
+          <Route path='/finalOrder' element={<FinalOrder/>}></Route>
         </Route>
         <Route path='/login' element={<Login />}></Route>
         <Route path='/*' element={<h1 className='text-center mt-5 p-5'>Page not Found Enter valid Url</h1>}></Route>
