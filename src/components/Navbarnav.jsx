@@ -41,15 +41,15 @@ const Navbarnav = () => {
                     <Navbar.Brand ><img src="./myntra_logo.png" alt="" height={50} width={50} /></Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
-                        <Nav className="me-auto w-50 routes-link d-flex justify-content-around">
+                        <Nav className="me-auto w-lg-50 routes-link d-flex justify-content-around align-items-center">
                             {Links.map((li, index) => (
-                                <Link to={li.path} key={index}>{li.link}</Link>
+                                <Link to={li.path} className='mb-2' key={index}>{li.link}</Link>
                             ))}
                         </Nav>
                         <Form.Control
                             type="search"
                             placeholder="Search"
-                            className="w-25 me-5"
+                            className="w-25 me-5 w-sm-100 d-sm-none d-lg-block"
                             aria-label="Search"
                         />
                         <Nav className='d-flex align-items-center'>
@@ -75,7 +75,7 @@ const Navbarnav = () => {
                                     </Modal>
                                 </div>
                                 :
-                                <NavLink className='position-relative profile-drop'>
+                                <NavLink className='position-relative profile-drop d-sm-none d-lg-block'>
                                     <FaRegUserCircle /><br />
                                     <span>Profile <IoMdArrowDropdown /></span>
                                     <div className='dropdown'>
