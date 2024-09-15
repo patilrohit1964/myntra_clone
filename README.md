@@ -1,7 +1,9 @@
 this is my video link="https://drive.google.com/file/d/1zkJSNFnYyA7MrknRXxJqsu8h-Ld10b4m/view?usp=sharing"
 
 <img src="./public/my_project_Images/myntra_home.png" alt='image'>
-<video src="./public/my_project_Images/short_men_video.mp4" autoplay loop muted ></video>
+<video width="320" height="240"  autoplay muted loop>
+  <source src="./public//my_project_Images/short_men_video.mp4" type="video/mp4">
+</video>
 <div>
     <h1>Features</h1>
     <ul>
