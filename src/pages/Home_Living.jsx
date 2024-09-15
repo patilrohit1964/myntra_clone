@@ -92,7 +92,7 @@ const Home_Living = () => {
                 </div>
                 <div className='text-left second-div text-secondary'>
                     <p>Furshings & Bed Linen</p>
-                    <ul className='list-unstyled d-sm-none d-lg-block'>
+                    <ul className='list-unstyled d-lg-block'>
                         {texts.map((el, index) => (
                             <li className='mb-2' key={index}>{el}</li>
                         ))}
