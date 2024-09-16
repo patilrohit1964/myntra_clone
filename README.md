@@ -37,11 +37,11 @@ this is my video link="https://drive.google.com/file/d/1zkJSNFnYyA7MrknRXxJqsu8h
     <h2>Steps</h2>
     <ol>
         <li>Clone the repository:</li>
-        <p>git clone https://github.com/patilrohit1964/myntra_clone.git</p>
+        <p style="background-color:black; color:white; padding:15px;">git clone https://github.com/patilrohit1964/myntra_clone.git</p>
         <li>Navigate to the project directory:</li>
-        <p>cd myntra_clone</p>
+        <p style="background-color:black; color:white; padding:15px;">cd myntra_clone</p>
         <li>Install dependencies</li>
-        <p>npm install</p>
+        <p style="background-color:black; color:white; padding:15px;">npm install</p>
         <li>npm run dev</li>
     </ol>
 </div>
