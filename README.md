@@ -2,7 +2,12 @@ this is my video link="https://drive.google.com/file/d/1zkJSNFnYyA7MrknRXxJqsu8h
 
 <img src="./public/my_project_Images/myntra_home.png" alt='project home image'/>
 <img src="./public/my_project_Images/login_image.png" alt="project login image"/>
-<img src="./public//my_project_Images/details_image.png"/>
+<img src="./public/my_project_Images/details_image.png" alt="project details image"/>
+<img src="./public/my_project_Images/product_image.png" alt="project product image"/>
+<img src="./public/my_project_Images/wishlist_image.png" alt="porject wishlist image"/>
+<img src="./public/my_project_Images/payment_image.png" alt="project payment image"/>
+<img src="./public/my_project_Images/order_image.png" alt=""/>
+<img src="./public/my_project_Images/successfully_order.png" alt=""/>
 <div>
     <h1>Features</h1>
     <ul>
