@@ -5,18 +5,20 @@
 }
 
 /* spinners styling */
-.loading-spinners{
+.loading-spinners {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
 /* spinners styling end */
 
-a{
+a {
   text-decoration: none;
   color: black;
 }
+
 /* a tag links styles of navbar */
 .routes-link {
   width: 500px;
@@ -37,23 +39,27 @@ a{
   top: 200%;
   left: 0px;
 }
+
 /* nav dropdown styling */
-.profile-drop:hover .dropdown{
+.profile-drop:hover .dropdown {
   display: block;
 }
-.dropdown{
+
+.dropdown {
   display: none;
   position: absolute;
   right: -65px;
   top: 45px;
-  width:291px;
-  height:432px;
+  width: 291px;
+  height: 432px;
   z-index: 999;
   background-color: white;
 }
-.dropdown a:hover{
+
+.dropdown a:hover {
   font-weight: bold;
 }
+
 /* carousel slider home page styling*/
 .carousel img {
   height: 100%;
@@ -242,27 +248,32 @@ footer a {
   height: 397px;
   width: 374px;
 }
+
 .hl-sec3-box .box {
-  height:143px;
+  height: 143px;
   width: 231px;
 }
 
 /* beauty comp styling */
-aside{
+aside {
   width: 252px;
   height: 1483px;
   border-right: 2px solid #ddd;
   overflow-y: scroll;
 }
-aside::-webkit-scrollbar{
+
+aside::-webkit-scrollbar {
   color: red;
 }
-aside input[type='checkbox'],aside input[type='radio']{
-  height:18px;
-  width:18px;
+
+aside input[type='checkbox'],
+aside input[type='radio'] {
+  height: 18px;
+  width: 18px;
 }
 
-.beauty-comp img,.listProduct-comp img{
+.beauty-comp img,
+.listProduct-comp img {
   width: 230px;
   min-height: 230px;
   object-fit: cover;
@@ -279,29 +290,32 @@ aside input[type='checkbox'],aside input[type='radio']{
 }
 
 /* login comp styling */
-form{
-  width:400px;
+form {
+  width: 400px;
   height: 593px;
   margin: auto;
 }
 
-.img-div{
+.img-div {
   width: 400px;
   height: 160px;
 }
-form img{
+
+form img {
   width: 100%;
   height: 100%;
 }
 
 /* wisht list design */
-.card-body{
-  position:relative;
+.card-body {
+  position: relative;
 }
-.cbhover{
+
+.cbhover {
   display: none;
 }
-.card-body:hover .cbhover{
+
+.card-body:hover .cbhover {
   position: absolute;
   display: flex;
   align-items: center;
@@ -313,15 +327,16 @@ form img{
   background-color: white;
   border: 2px solid #ddd;
 }
-.modal{
-  margin-top:150px;
+
+.modal {
+  margin-top: 150px;
 }
+
 /* prdetail-comp styling */
 
-.prdetail-parent div{
-  width: 50%;
-}
-.prdetail-parent ul li{
+
+
+.prdetail-parent ul li {
   height: 50px;
   width: 50px;
   border-radius: 50%;
@@ -330,7 +345,8 @@ form img{
   transition: all 0.3s ease-in-out;
   cursor: pointer;
 }
-.prdetail-parent ul li:hover{
+
+.prdetail-parent ul li:hover {
   color: white;
   background-color: rgb(237, 66, 94);
 }

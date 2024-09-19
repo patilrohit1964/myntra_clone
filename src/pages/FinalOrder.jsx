@@ -16,7 +16,7 @@ const FinalOrder = () => {
         },2000);
     }
     return (
-        <div className='text-center'>
+        <div className='text-center overflow-hidden'>
             {waiting ?
                 <div className='container m-auto mt-5 text-center'>
                     <img src={image} alt="" />

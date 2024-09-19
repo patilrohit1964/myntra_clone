@@ -45,7 +45,7 @@ const ProductDetails = () => {
     // -------------------------------------
     return loading ? <Loading /> : (
         <div className='prdetail-comp'>
-            <div className='d-flex container justify-content-between prdetail-parent mt-5 flex-wrap'>
+            <div className='d-flex container justify-content-around prdetail-parent mt-5 flex-wrap overflow-hidden'>
                 <div className='prImage border'>
                     <img src={data.image} alt={data.description} />
                 </div>

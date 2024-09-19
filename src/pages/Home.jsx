@@ -123,7 +123,7 @@ const Home = () => {
                 <h3 className='mt-5 mb-5'>SHOP BY CATEGORY</h3>
                 <div className="boxes d-flex justify-content-center flex-wrap">
                     {sec3Img.map((e, index) => (
-                        <div className='box' key={index}><Link to={'/listProduct/men'}><img src={e} alt="" /></Link></div>
+                        <div className='box mb-2' key={index}><Link to={'/listProduct/men'}><img src={e} alt="" /></Link></div>
                     ))}
                 </div>
 

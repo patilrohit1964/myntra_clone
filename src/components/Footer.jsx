@@ -5,7 +5,7 @@ const Footer = () => {
     return (
         <div className='container'>
             <footer className='pb-5'>
-                <div className="div1 d-flex mt-5 container justify-content-between">
+                <div className="div1 d-flex flex-wrap mt-5 container justify-content-between">
                     <div >
                         <p>ONLINE SHOPPING</p>
                         <Link>Men</Link><br />
@@ -65,7 +65,7 @@ const Footer = () => {
                     <p>Popular Searches</p>
                     <span className='text-secondary'>Sherwani  Track Pants  Blazers  Sweaters For Men  Men Wedding Dresses  Kurta Pajama  Raincoats  Shorts  Trousers  Waistcoat  Inner Wear  Nightwear  Jeans  Shirts  Jogger Jeans  Men Suits  T Shirts  Sweatshirts  Jackets For Men  Tracksuits  Ripped Jeans  Ethnic Wear  Hoodies  Raksha Bandhan Gifts  Watches  Shoes  Belts  Swimwear  Dhotis  Boxers  Vests  Thermals  Socks  Shrugs  Bracelets  Rings  Sunglasses  Headphones  Wallets  Helmets  Caps  Mufflers  Gloves  Ties  Cufflinks  Men Sandals  Floaters  Flip Flops  Trunks  Bags</span>
                 </div>
-                <div className='mt-3 d-flex justify-content-between text-secondary'>
+                <div className='mt-3 d-flex flex-wrap justify-content-between text-secondary'>
                     <span>In case of any concern, Contact Us</span>
                     <span>© 2024 www.myntra.com. All rights reserved.</span>
                     <span>A Flipkart company</span>
