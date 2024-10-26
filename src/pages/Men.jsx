@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Footer from '../components/Footer'
 import Carousel from 'react-bootstrap/Carousel';
 import { Link } from 'react-router-dom';
+import Aos from 'aos';
 const Men = () => {
     const sec1Img = [
         'https://assets.myntassets.com/f_webp,w_245,c_limit,fl_progressive,dpr_2.0/assets/images/2020/8/31/1dce9c3e-77fa-48f1-85a3-d3c136c1d73e1598892377652-USPA.jpg',
@@ -68,6 +69,14 @@ const Men = () => {
         'https://assets.myntassets.com/f_webp,w_196,c_limit,fl_progressive,dpr_2.0/assets/images/2020/8/19/8363b55c-446f-4de2-bc5b-e75fd6fdfb2d1597840217862-Content-accessories-brand-fastrack.png',
         'https://assets.myntassets.com/f_webp,w_196,c_limit,fl_progressive,dpr_2.0/assets/images/2020/8/19/274b3659-420d-43c2-8e4c-17249e6eaf8d1597840218139-Content-accessories-trend-minimalist.png'
     ]
+
+    useEffect(() => {
+        Aos.init({
+            duration: 1100,
+            once: false,
+            easing: 'ease-in-out-sine',
+        });
+    }, [])
     return (
         <div className='men-comp'>
             <Carousel className='mt-5'>
@@ -92,7 +101,7 @@ const Men = () => {
                 <h4>Biggest Deals On Top Brands</h4>
                 <div className='d-flex justify-content-center mt-5 flex-wrap'>
                     {sec1Img.map((e, index) => (
-                        <Link to={'/listProduct/men'} key={index}>
+                        <Link to={'/listProduct/men'} key={index} data-aos="zoom-in">
                             <div className='box mb-2 me-2'>
                                 <img className='img-fluid' src={e} alt='' />
                             </div>
@@ -105,7 +114,7 @@ const Men = () => {
                 <h4>Categories To Bag</h4>
                 <div className='mt-5 d-flex justify-content-between flex-wrap'>
                     {sec2Img.map((e, index) => (
-                        <Link to={'/listProduct/men'} key={index}>
+                        <Link to={'/listProduct/men'} key={index} data-aos="fade-up">
                             <div key={index} className='box'>
                                 <img src={e} alt='' />
                             </div>
@@ -118,7 +127,7 @@ const Men = () => {
                 <h4>Explore Top Brands</h4>
                 <div className='d-flex justify-content-between flex-wrap mt-5'>
                     {sec3Img.map((e, index) => (
-                        <Link to={'/listProduct/men'} key={index}>
+                        <Link to={'/listProduct/men'} key={index} data-aos="fade-right">
                             <div key={index} className='box'>
                                 <img src={e} alt='' />
                             </div>
@@ -131,7 +140,7 @@ const Men = () => {
                 <h4>MYNTRA LUXE</h4>
                 <div className='d-flex justify-content-between mt-5 flex-wrap'>
                     {sec4Img.map((e, index) => (
-                        <Link to={'/listProduct/men'} key={index}>
+                        <Link to={'/listProduct/men'} key={index} data-aos="fade-left">
                             <div key={index} className='box'>
                                 <img src={e} alt='' />
                             </div>
@@ -144,7 +153,7 @@ const Men = () => {
                 <h4>Trending In Indian Wear</h4>
                 <div className='d-flex justify-content-between mt-5 flex-wrap'>
                     {sec5Img.map((e, index) => (
-                        <Link to={'/listProduct/men'} key={index}>
+                        <Link to={'/listProduct/men'} key={index} data-aos="zoom-out-up">
                             <div key={index} className='box'>
                                 <img src={e} alt='' />
                             </div>
@@ -157,7 +166,7 @@ const Men = () => {
                 <h4>Trending In Sports Wear</h4>
                 <div className='d-flex justify-content-between mt-5 flex-wrap'>
                     {sec6Img.map((e, index) => (
-                        <Link to={'/listProduct/men'} key={index}>
+                        <Link to={'/listProduct/men'} key={index} data-aos="zoom-out-right">
                             <div key={index} className='box'>
                                 <img src={e} alt='' />
                             </div>
@@ -170,7 +179,7 @@ const Men = () => {
                 <h4>Trending In Footwear</h4>
                 <div className='d-flex justify-content-between mt-5 flex-wrap'>
                     {sec7Img.map((e, index) => (
-                        <Link to={'/listProduct/men'} key={index}>
+                        <Link to={'/listProduct/men'} key={index} data-aos="zoom-out-left">
                             <div key={index} className='box'>
                                 <img src={e} alt='' />
                             </div>
@@ -183,7 +192,7 @@ const Men = () => {
                 <h4>Trending In Accessories</h4>
                 <div className='d-flex justify-content-between mt-5 flex-wrap'>
                     {sec8Img.map((e, index) => (
-                        <Link to={'/listProduct/men'} key={index}>
+                        <Link to={'/listProduct/men'} key={index} data-aos="zoom-out-right">
                             <div key={index} className='box'>
                                 <img src={e} alt='' />
                             </div>

@@ -1,4 +1,5 @@
-import React from 'react'
+import Aos from 'aos'
+import React, { useEffect } from 'react'
 import Carousel from 'react-bootstrap/esm/Carousel'
 import { Link } from 'react-router-dom'
 const Kids = () => {
@@ -83,8 +84,16 @@ const Kids = () => {
         'https://assets.myntassets.com/f_webp,w_196,c_limit,fl_progressive,dpr_2.0/assets/images/2020/11/9/3bfd54e9-06ca-4a1c-8286-fc1eb73242661604906588708-72-MoreBrands-Sangria.jpg',
         'https://assets.myntassets.com/f_webp,w_196,c_limit,fl_progressive,dpr_2.0/assets/images/2020/11/9/706a41d7-9d15-4b56-81be-2f02bac65ebb1604906588761-73-MoreBrands-Cherokee.jpg'
     ]
+
+    useEffect(() => {
+        Aos.init({
+            duration: 1200,
+            once: false
+        })
+    }, [])
+
     return (
-        <div className='kids-comp'>
+        <div className='kids-comp overflow-hidden'>
             <Carousel className='mt-5'>
                 {kidsCarousel.map((image, index) => (
                     <Carousel.Item key={index}><img src={image} alt="Kids Wear" /></Carousel.Item>
@@ -95,7 +104,7 @@ const Kids = () => {
                 <h4 className='container'>FAVOURITE BRANDS</h4>
                 <div className='d-flex justify-content-between mt-5 kid-sec1-box flex-wrap'>
                     {sec1Img.map((e, index) => (
-                        <Link to={'/listProduct/kids'} key={index}>
+                        <Link to={'/listProduct/kids'} key={index} data-aos="flip-down">
                             <div key={index} className='box mb-3'>
                                 <img src={e} alt='Favourite Brands' />
                             </div>
@@ -108,7 +117,7 @@ const Kids = () => {
                 <h4 className='container'>Top Picks</h4>
                 <div className='d-flex justify-content-between mt-5 kid-sec2-box flex-wrap'>
                     {sec2Img.map((e, index) => (
-                        <Link to={'/listProduct/kids'} key={index}>
+                        <Link to={'/listProduct/kids'} key={index} data-aos="flip-up">
                             <div key={index} className='box mb-3'>
                                 <img src={e} alt='Favourite Brands' />
                             </div>
@@ -121,7 +130,7 @@ const Kids = () => {
                 <h4 className='container'>Iconic Brands</h4>
                 <div className='d-flex justify-content-between mt-5 kid-sec3-box flex-wrap'>
                     {sec3Img.map((e, index) => (
-                        <Link to={'/listProduct/kids'} key={index}>
+                        <Link to={'/listProduct/kids'} key={index} data-aos="zoom-in">
                             <div key={index} className='box mb-3'>
                                 <img src={e} alt='Favourite Brands' />
                             </div>
@@ -134,7 +143,7 @@ const Kids = () => {
                 <h4 className='container'>Fashion & Essentials</h4>
                 <div className='d-flex justify-content-center mt-5 kid-sec4-box flex-wrap'>
                     {sec4Img.map((e, index) => (
-                        <Link to={'/listProduct/kids'} key={index}>
+                        <Link to={'/listProduct/kids'} key={index} data-aos="zoom-in">
                             <div key={index} className='box mb-3'>
                                 <img src={e} alt='Favourite Brands' />
                             </div>
@@ -146,9 +155,9 @@ const Kids = () => {
 
             <section className="section5 mt-5">
                 <h4 className='container'>EXPLORE MORE</h4>
-                <div className='d-flex justify-content-center mt-5 kid-sec5-box flex-wrap'>
+                <div className='d-flex justify-content-center mt-5 kid-sec5-box flex-wrap align-items-center'>
                     {sec5Img.map((e, index) => (
-                        <Link to={'/listProduct/kids'} key={index}>
+                        <Link to={'/listProduct/kids'} key={index} data-aos="zoom-in">
                             <div key={index} className='box mb-3'>
                                 <img src={e} alt='Favourite Brands' />
                             </div>
@@ -160,8 +169,8 @@ const Kids = () => {
             <section className='section6 mt-5'>
                 <h4 className='container'>THE KIDS SPACE</h4>
                 <div className='d-flex justify-content-between mt-5 kid-sec6-box flex-wrap'>
-                    <img src="https://assets.myntassets.com/f_webp,w_490,c_limit,fl_progressive,dpr_2.0/assets/images/2020/11/9/817ada39-86d3-4162-b10f-443c7d658f541604906587912-59b-Banner-KidsSpace.jpg" alt="" />
-                    <img src="https://assets.myntassets.com/f_webp,w_490,c_limit,fl_progressive,dpr_2.0/assets/images/2020/11/9/9906ea02-f0e5-40b8-b6db-ce3c5fd5fcf31604906587854-59a-Banner-KidsSpace.jpg" alt="" />
+                    <img src="https://assets.myntassets.com/f_webp,w_490,c_limit,fl_progressive,dpr_2.0/assets/images/2020/11/9/817ada39-86d3-4162-b10f-443c7d658f541604906587912-59b-Banner-KidsSpace.jpg" alt="" data-aos="fade-right" />
+                    <img src="https://assets.myntassets.com/f_webp,w_490,c_limit,fl_progressive,dpr_2.0/assets/images/2020/11/9/9906ea02-f0e5-40b8-b6db-ce3c5fd5fcf31604906587854-59a-Banner-KidsSpace.jpg" alt="" data-aos="fade-left" />
                 </div>
             </section>
 
@@ -169,7 +178,7 @@ const Kids = () => {
                 <h4 className='container'>BUDGET BUY</h4>
                 <div className='d-flex justify-content-between mt-5 kid-sec7-box flex-wrap'>
                     {sec7Img.map((e, index) => (
-                        <Link to={'/listProduct/kids'} key={index}>
+                        <Link to={'/listProduct/kids'} key={index} data-aos="zoom-in">
                             <div key={index} className='box mb-3'>
                                 <img src={e} alt='Favourite Brands' />
                             </div>
@@ -182,7 +191,7 @@ const Kids = () => {
                 <h4 className='container'>BUDGET BUY</h4>
                 <div className='d-flex justify-content-between mt-5 kid-sec8-box flex-wrap'>
                     {sec8Img.map((e, index) => (
-                        <Link to={'/listProduct/kids'} key={index}>
+                        <Link to={'/listProduct/kids'} key={index} data-aos="zoom-in">
                             <div key={index} className='box mb-3'>
                                 <img src={e} alt='Favourite Brands' />
                             </div>

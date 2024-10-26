@@ -7,6 +7,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Loading from '../components/Loading';
 import { ContextData } from '../context/ContextApp';
+import { toast } from 'react-toastify';
 
 const WishList = () => {
 
@@ -30,7 +31,7 @@ const WishList = () => {
             let fetchData = axios.delete(`https://myntra-backend-5dfe.onrender.com/cart/${id}`);
             let result = await fetchData;
             if (result.status == 200) {
-                alert("Remove Data From Wishlist Successfully");
+                toast.success("Remove Data From Wishlist Successfully");
                 fetchWishlistData();
             }
         }

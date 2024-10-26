@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { FaShoppingBag, FaBookmark } from "react-icons/fa";
 import Loading from '../components/Loading';
 import { ContextData } from '../context/ContextApp';
+import { toast } from 'react-toastify';
 const ProductDetails = () => {
 
     // context data
@@ -30,12 +31,12 @@ const ProductDetails = () => {
             })
             let finalResult = await result;
             if (finalResult.status == 201) {
-                alert('added successfully');
+                toast.success('added successfully');
             } else {
-                alert('some error try after few minutes');
+                toast.error('some error try after few minutes');
             }
         } else {
-            alert('Please login to add to wishlist');
+            toast.error('Please login to add to wishlist');
         }
     }
     // --------------------------------------

@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import Carousel from 'react-bootstrap/Carousel';
 // Import Swiper styles
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -10,6 +10,8 @@ import './slider.css';
 // import required modules
 import { Pagination, Navigation, FreeMode } from 'swiper/modules';
 import { Link } from 'react-router-dom';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 const Home = () => {
 
     const carouselImg = [
@@ -81,6 +83,14 @@ const Home = () => {
         'https://assets.myntassets.com/f_webp,w_196,c_limit,fl_progressive,dpr_2.0/assets/images/2023/7/31/82cdf918-9ad9-41fa-a5a7-c4c86fbad90c1690787338876-Shop-By-Category_HP-4_34.jpg',
         'https://assets.myntassets.com/f_webp,w_196,c_limit,fl_progressive,dpr_2.0/assets/images/2023/7/31/ed2e98bc-e4f4-4e85-bc74-537142205d0f1690787339374-Shop-By-Category_HP-4_35.jpg'
     ]
+
+    useEffect(() => {
+        AOS.init({
+            duration: 1200,
+            once: false,
+        });
+    }, [])
+
     return (
         <div>
             <Carousel>
@@ -93,7 +103,7 @@ const Home = () => {
 
             <section className='section1'>
                 <h3 className='mt-5 container'>Medal Worthy Brands To Bag</h3>
-                <Swiper slidesPerView={3} spaceBetween={30} freeMode={true} pagination={{clickable: true,}} modules={[FreeMode,]} className="mySwiper mt-5"
+                <Swiper slidesPerView={3} spaceBetween={30} freeMode={true} pagination={{ clickable: true, }} modules={[FreeMode,]} className="mySwiper mt-5"
                 >
                     {sec1Img.map((e, index) => (
                         <SwiperSlide key={index}><Link to={'/listProduct/men'}><img src={e} alt="" /></Link></SwiperSlide>
@@ -123,7 +133,7 @@ const Home = () => {
                 <h3 className='mt-5 mb-5'>SHOP BY CATEGORY</h3>
                 <div className="boxes d-flex justify-content-center flex-wrap">
                     {sec3Img.map((e, index) => (
-                        <div className='box mb-2' key={index}><Link to={'/listProduct/men'}><img src={e} alt="" /></Link></div>
+                        <div className='box mb-2' key={index} data-aos="fade-up" data-aos-delay="500"><Link to={'/listProduct/men'}><img src={e} alt="" /></Link></div>
                     ))}
                 </div>
 

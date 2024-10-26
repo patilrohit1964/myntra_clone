@@ -31,7 +31,7 @@ a {
 }
 
 .routes-link a:hover::after {
-  content: '';
+  content: "";
   position: absolute;
   display: block;
   width: 100%;
@@ -52,7 +52,7 @@ a {
   top: 45px;
   width: 291px;
   height: 432px;
-  z-index: 999;
+  z-index: 999999;
   background-color: white;
 }
 
@@ -266,8 +266,8 @@ aside::-webkit-scrollbar {
   color: red;
 }
 
-aside input[type='checkbox'],
-aside input[type='radio'] {
+aside input[type="checkbox"],
+aside input[type="radio"] {
   height: 18px;
   width: 18px;
 }
@@ -334,8 +334,6 @@ form img {
 
 /* prdetail-comp styling */
 
-
-
 .prdetail-parent ul li {
   height: 50px;
   width: 50px;
@@ -349,4 +347,10 @@ form img {
 .prdetail-parent ul li:hover {
   color: white;
   background-color: rgb(237, 66, 94);
+}
+
+@media screen and (min-width: 400px) {
+  .routes-link {
+    width: 100%;
+  }
 }

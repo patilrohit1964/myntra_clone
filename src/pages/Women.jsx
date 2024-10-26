@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import Carousel from 'react-bootstrap/Carousel';
+import Aos from 'aos';
 const Women = () => {
     const carouselImg = [
         'https://assets.myntassets.com/f_webp,w_980,c_limit,fl_progressive,dpr_2.0/assets/images/2022/4/10/c74bac2c-e09d-484f-8e25-c07747c867241649530728935-Tops---Tees_Desk.jpg',
@@ -85,8 +86,16 @@ const Women = () => {
         'https://assets.myntassets.com/f_webp,w_196,c_limit,fl_progressive,dpr_2.0/assets/images/retaillabs/2020/8/21/bc36f35b-f5ce-4168-bd96-d3c1f65ec4e21598030134870-Content-mostselling-Accessories-Rosegoldwatch.jpeg',
         'https://assets.myntassets.com/f_webp,w_196,c_limit,fl_progressive,dpr_2.0/assets/images/2020/8/19/5e68d729-b955-431c-930c-931d8b452d421597840217983-Content-accessories-color-white.png'
     ]
+
+    useEffect(() => {
+        Aos.init({
+            duration: 1200,
+            once: false
+        })
+    }, [])
+
     return (
-        <div className='women-comp'>
+        <div className='women-comp overflow-hidden'>
             <Carousel className='mt-5'>
                 {carouselImg.map((e, index) => (
                     <Carousel.Item interval={1000} key={index}>
@@ -99,7 +108,7 @@ const Women = () => {
                 <h4>Biggest Deals On Top Brands</h4>
                 <div className='d-flex justify-content-between flex-wrap mt-5 women-sec1-box'>
                     {sec1Img.map((e, index) => (
-                        <Link to={'/listProduct/women'} key={index}>
+                        <Link to={'/listProduct/women'} key={index} data-aos="zoom-in">
                             <div key={index} className='box'>
                                 <img src={e} alt='' />
                             </div>
@@ -112,7 +121,7 @@ const Women = () => {
                 <h4>Categories To Bag</h4>
                 <div className='d-flex justify-content-between flex-wrap mt-5 women-sec2-box'>
                     {sec2Img.map((e, index) => (
-                        <Link to={'/listProduct/women'} key={index}>
+                        <Link to={'/listProduct/women'} key={index} data-aos="fade-right">
                             <div key={index} className='box'>
                                 <img src={e} alt='' />
                             </div>
@@ -125,7 +134,7 @@ const Women = () => {
                 <h4>Explore Top Brands</h4>
                 <div className='d-flex justify-content-between flex-wrap mt-5 women-sec3-box'>
                     {sec3Img.map((e, index) => (
-                        <Link to={'/listProduct/women'} key={index}>
+                        <Link to={'/listProduct/women'} key={index} data-aos="fade-left">
                             <div key={index} className='box'>
                                 <img src={e} alt='' />
                             </div>
@@ -138,7 +147,7 @@ const Women = () => {
                 <h4>Trending In Western Wear</h4>
                 <div className='d-flex justify-content-between flex-wrap mt-5 women-sec4-box'>
                     {sec4Img.map((e, index) => (
-                        <Link to={'/listProduct/women'} key={index}>
+                        <Link to={'/listProduct/women'} key={index} data-aos="fade-up-right">
                             <div key={index} className='box'>
                                 <img src={e} alt='' />
                             </div>
@@ -151,7 +160,7 @@ const Women = () => {
                 <h4>Trending In Indian Wear</h4>
                 <div className='d-flex justify-content-between flex-wrap mt-5 women-sec5-box'>
                     {sec5Img.map((e, index) => (
-                        <Link to={'/listProduct/women'} key={index}>
+                        <Link to={'/listProduct/women'} key={index} data-aos="zoom-in">
                             <div key={index} className='box'>
                                 <img src={e} alt='' />
                             </div>
@@ -164,7 +173,7 @@ const Women = () => {
                 <h4>Trending In Sports Wear</h4>
                 <div className='d-flex justify-content-between flex-wrap mt-5 women-sec6-box'>
                     {sec6Img.map((e, index) => (
-                        <Link to={'/listProduct/women'} key={index}>
+                        <Link to={'/listProduct/women'} key={index} data-aos="zoom-in">
                             <div key={index} className='box'>
                                 <img src={e} alt='' />
                             </div>
@@ -177,7 +186,7 @@ const Women = () => {
                 <h4>Trending In Footwear</h4>
                 <div className='d-flex justify-content-between flex-wrap mt-5 women-sec7-box'>
                     {sec7Img.map((e, index) => (
-                        <Link to={'/listProduct/women'} key={index}>
+                        <Link to={'/listProduct/women'} key={index} data-aos="zoom-in">
                             <div key={index} className='box'>
                                 <img src={e} alt='' />
                             </div>
@@ -190,7 +199,7 @@ const Women = () => {
                 <h4>Trending In Accessories</h4>
                 <div className='d-flex justify-content-between flex-wrap mt-5 women-sec8-box'>
                     {sec8Img.map((e, index) => (
-                        <Link to={'/listProduct/women'} key={index}>
+                        <Link to={'/listProduct/women'} key={index} data-aos="zoom-in">
                             <div key={index} className='box'>
                                 <img src={e} alt='' />
                             </div>

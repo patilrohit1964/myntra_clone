@@ -36,23 +36,23 @@ const Navbarnav = () => {
     // return styling page
     return (
         <div>
-            <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary text-center" style={{ boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px" }}>
+            <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary text-center overflow-hidden" style={{ boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px" }}>
                 <Container>
                     <Navbar.Brand ><img src="./myntra_logo.png" alt="" height={50} width={50} /></Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
-                        <Nav className="me-auto w-lg-50 routes-link d-flex justify-content-around align-items-center text-sm-center justify-content-sm-center">
+                        <Nav className="me-auto me-sm-0 w-lg-50 routes-link d-flex justify-content-between align-items-center text-sm-center justify-content-sm-center">
                             {Links.map((li, index) => (
-                                <Link to={li.path} className='mb-2' key={index}>{li.link}</Link>
+                                <NavLink to={li.path} className='mb-2 me-3' key={index}>{li.link}</NavLink>
                             ))}
                         </Nav>
-                        <Form.Control
+                        {/* <Form.Control
                             type="search"
                             placeholder="Search"
-                            className="w-25 me-5 w-sm-100 d-sm-none d-lg-block"
+                            className="w-25 me-5 w-sm-100 d-sm-none d-lg-block m-sm-0"
                             aria-label="Search"
-                        />
-                        <Nav className='d-flex align-items-center'>
+                        /> */}
+                        <Nav className='d-flex align-items-center justify-content-sm-center'>
                             {auth ?
                                 <div className='cursor-pointer'>
                                     <button onClick={handleShow} className='btn mt-0 p-0'>
@@ -77,8 +77,8 @@ const Navbarnav = () => {
                                 :
                                 <NavLink className='position-relative profile-drop d-sm-none d-lg-block'>
                                     <FaRegUserCircle /><br />
-                                    <span>Profile <IoMdArrowDropdown /></span>
-                                    <div className='dropdown'>
+                                    <span>Profile</span>
+                                    {/* <div className='dropdown'>
                                         <h6 className='mt-3'><b>Welcome</b></h6>
                                         <span className='d-inline-block mb-2'>To access account and manage orders</span><br />
                                         <NavLink to={'/login'}><button className='btn text-danger border'>LOGIN / SIGNUP</button></NavLink><hr />
@@ -93,17 +93,13 @@ const Navbarnav = () => {
                                         <NavLink>Saved Cards</NavLink><br />
                                         <NavLink>Saved VPA</NavLink><br />
                                         <NavLink>Saved Addresses</NavLink>
-                                    </div>
+                                    </div> */}
                                 </NavLink>
                             }
                             <NavLink className='ms-3' to={'/wishlist'}>
                                 <FaRegHeart /><br />
                                 WishList
                             </NavLink>
-                            {/* <NavLink to={'/bag/:id'} className='m-0 p-0'>
-                                <FaShoppingBag /><br />
-                                Bag
-                            </NavLink> */}
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
