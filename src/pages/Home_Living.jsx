@@ -1,7 +1,5 @@
-import React, { useContext } from 'react'
-import { Link } from 'react-router-dom'
-import { ContextData } from '../context/ContextApp';
-import Loading from '../components/Loading';
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Home_Living = () => {
 

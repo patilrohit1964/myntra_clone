@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import { FaShoppingBag, FaBookmark } from "react-icons/fa";
 import Loading from '../components/Loading';
 import { ContextData } from '../context/ContextApp';
-import { toast } from 'react-toastify';
+import toast from 'react-hot-toast';
 const ProductDetails = () => {
 
     // context data
@@ -36,7 +36,7 @@ const ProductDetails = () => {
                 toast.error('some error try after few minutes');
             }
         } else {
-            toast.error('Please login to add to wishlist');
+            toast.error('Please login first for add to wishlist');
         }
     }
     // --------------------------------------

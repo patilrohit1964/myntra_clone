@@ -1,17 +1,17 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useEffect } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 // Import Swiper styles
 import { Swiper, SwiperSlide } from 'swiper/react';
 // Import Swiper styles
 import 'swiper/css';
-import 'swiper/css/pagination';
 import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 import './slider.css';
 // import required modules
-import { Pagination, Navigation, FreeMode } from 'swiper/modules';
-import { Link } from 'react-router-dom';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { Link } from 'react-router-dom';
+import { FreeMode, Pagination } from 'swiper/modules';
 const Home = () => {
 
     const carouselImg = [

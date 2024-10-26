@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import Form from 'react-bootstrap/Form';
 import { useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
+import toast from 'react-hot-toast';
 // import GoogleButton from 'react-google-button'
 // import { auth, provider } from '../firebase/firebase'
 // import Privatecomp from '../private/Privatecomp'

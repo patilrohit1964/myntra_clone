@@ -1,12 +1,10 @@
 import React from "react";
-import Form from 'react-bootstrap/Form'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
-import InputGroup from 'react-bootstrap/InputGroup'
-import Button from 'react-bootstrap/Button'
-import { NavLink, useNavigate } from "react-router-dom";
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import Row from 'react-bootstrap/Row';
+import { useNavigate } from "react-router-dom";
 function OrderComp() {
-    const navigate=useNavigate();
+    const navigate = useNavigate();
     function handleSubmit(e) {
         e.preventDefault();
         navigate('/finalOrder');

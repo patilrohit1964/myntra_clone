@@ -7,7 +7,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Loading from '../components/Loading';
 import { ContextData } from '../context/ContextApp';
-import { toast } from 'react-toastify';
+import toast from 'react-hot-toast';
 
 const WishList = () => {
 

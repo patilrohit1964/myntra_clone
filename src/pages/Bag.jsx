@@ -1,13 +1,11 @@
-import React, { useContext, useEffect, useState } from 'react'
-import Footer from '../components/Footer';
-import { ContextData } from '../context/ContextApp';
-import Loading from '../components/Loading';
-import { Link, NavLink, useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
+import React, { useContext, useEffect, useState } from 'react';
 import Button from 'react-bootstrap/esm/Button';
 import Card from 'react-bootstrap/esm/Card';
-import Form from 'react-bootstrap/Form';
 import { FaStar } from 'react-icons/fa';
+import { NavLink, useNavigate, useParams } from 'react-router-dom';
+import Loading from '../components/Loading';
+import { ContextData } from '../context/ContextApp';
 const Bag = () => {
     const [dataId, setIdData] = useState({});
     const [confirmOrder, setOrder] = useState(true);
@@ -24,7 +22,7 @@ const Bag = () => {
     useEffect(() => {
         getDataFromBag();
     }, []);
-    return loading ?<Loading/> :(
+    return loading ? <Loading /> : (
         <div className='bag-comp'>
             {confirmOrder ? <Card style={{ width: '20rem' }} className='mt-3 text-center container'>
                 <Card.Img src={dataId.image} alt={dataId.description} />

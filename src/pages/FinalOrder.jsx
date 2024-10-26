@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
+import toast from 'react-hot-toast';
 
 const FinalOrder = () => {
     const [image, setImage] = useState('https://www.drupal.org/files/project-images/drupal-project-barcodes.png');
