@@ -1,4 +1,5 @@
-import React from 'react';
+import Aos from 'aos';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 const Home_Living = () => {
@@ -69,6 +70,14 @@ const Home_Living = () => {
         'https://assets.myntassets.com/f_webp,w_196,c_limit,fl_progressive,dpr_2.0/assets/images/2022/3/17/06f9e39d-a4d4-4ba4-b4cb-960c87ff5d511647499996189-M-S-Logo.jpg',
         'https://assets.myntassets.com/f_webp,w_196,c_limit,fl_progressive,dpr_2.0/assets/images/banners/2019/3/1/a38e440e-1ff7-4092-acbe-46d74b38384a1551443106457-Home-page-Desktop-Brands_13.jpg'
     ]
+
+    useEffect(() => {
+        Aos.init({
+            duration: 1200,
+            once: false
+        })
+    }, [])
+
     return (
         <div className='home-living-comp'>
             <div className='container mt-5' style={{ height: '301px' }}>
@@ -80,7 +89,7 @@ const Home_Living = () => {
                     <h4>NICE TO SEE YOU, COME ON IN!</h4>
                     <div className='hl-sec1-box d-flex justify-content-center mt-5 flex-wrap'>
                         {sec1Img.map((el, index) => (
-                            <Link to={'/listProduct/home_living'} key={index}>
+                            <Link to={'/listProduct/home_living'} key={index} data-aos="fade-right">
                                 <div className='mb-3 box ms-2'>
                                     <img src={el} alt="internet problem" />
                                 </div>
@@ -92,7 +101,7 @@ const Home_Living = () => {
                     <p>Furshings & Bed Linen</p>
                     <ul className='list-unstyled d-lg-block'>
                         {texts.map((el, index) => (
-                            <li className='mb-2' key={index}>{el}</li>
+                            <li className='mb-2' key={index} data-aos="fade-left">{el}</li>
                         ))}
                     </ul>
                 </div>
@@ -103,7 +112,7 @@ const Home_Living = () => {
                     <img src="https://assets.myntassets.com/f_webp,w_980,c_limit,fl_progressive,dpr_2.0/assets/images/banners/2018/2/1/11517478281102-Home-page-Desktop_12.jpg" alt="" />
                     <div className='d-flex justify-content-between flex-wrap hl-sec2-box container pb-5'>
                         {sec2Img.map((el, index) => (
-                            <Link to={'/listProduct/home_living'} key={index}>
+                            <Link to={'/listProduct/home_living'} key={index} data-aos="zoom-in">
                                 <div className='mb-3 box'>
                                     <img src={el} alt="internet problem" />
                                 </div>
@@ -115,10 +124,10 @@ const Home_Living = () => {
 
             <section className="section3 container pb-5">
                 <div>
-                    <img src="https://assets.myntassets.com/f_webp,w_980,c_limit,fl_progressive,dpr_2.0/assets/images/banners/2018/2/1/11517478696928-Home-page-Desktop_16.jpg" alt="" />
+                    <img src="https://assets.myntassets.com/f_webp,w_980,c_limit,fl_progressive,dpr_2.0/assets/images/banners/2018/2/1/11517478696928-Home-page-Desktop_16.jpg" alt="" data-aos="flip-down" />
                     <div className='d-flex justify-content-between hl-sec3-box'>
                         {sec3Img.map((el, index) => (
-                            <Link to={'/listProduct/home_living'} key={index}>
+                            <Link to={'/listProduct/home_living'} key={index} data-aos="zoom-in">
                                 <div className='mb-3 box'>
                                     <img src={el} alt="internet problem" />
                                 </div>

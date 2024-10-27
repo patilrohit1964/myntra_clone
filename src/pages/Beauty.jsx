@@ -1,53 +1,56 @@
-import React, { useContext, useEffect, useState } from 'react'
-import { FaSearch, FaStar, FaAngleRight, FaAngleLeft, FaRegHeart } from "react-icons/fa";
-import { IoMdArrowDropdown } from "react-icons/io";
+import axios from 'axios';
+import React, { useContext, useEffect, useState } from 'react';
+import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
-import axios from 'axios'
-import Card from 'react-bootstrap/Card'
-import Button from 'react-bootstrap/Button'
-import { collection, getDocs } from 'firebase/firestore';
-import { db } from '../firebase/firebase';
-import { Link } from 'react-router-dom';
+import { FaRegHeart, FaSearch, FaStar } from "react-icons/fa";
+import { IoMdArrowDropdown } from "react-icons/io";
+import { Link, useSearchParams } from 'react-router-dom';
 import Loading from '../components/Loading';
 import { ContextData } from '../context/ContextApp';
 
 const Beauty = () => {
     // context api data
-    const {handleLoading,loading}=useContext(ContextData);
+    const { handleLoading, loading } = useContext(ContextData);
     //----------------------------------
+    const [searchParams, setSearchParams] = useSearchParams();
     const [data, setData] = useState([]);
     const [page, setPage] = useState(1);
     const [selectVal, setSelectVal] = useState(null);
-    const [checkboxVal, setCheckBox] = useState(null);
+    const [checkboxVal, setCheckBox] = useState(searchParams.getAll("category") || []);
     const [startVal, setStart] = useState(NaN);
     const [end, setEnd] = useState(1000);
     // -----------------------------------
     // fetch data from json
     async function getData() {
+        console.log(searchParams.getAll("category"))
         let result = axios.get("https://myntra-backend-5dfe.onrender.com/beautyProducts", {
             params: {
                 _page: page,
                 _limit: 10,
                 _sort: "price",
                 _order: selectVal,
-                category: checkboxVal,
+                category: searchParams.getAll("category") || [],
             }
         })
         let finalResult = (await result).data;
         setData(finalResult);
         handleLoading(false);
     };
-    // -----------------------------------
-    // event handlings
-    // // tp firestore
-    // async function firestoreData(){
-    //     let ans=await getDocs(collection(db,'users')).then(e=>{return e})
-    //     console.log(ans);
-    // }
+
+    function handleChange(e) {
+        const { value, name } = e.target;
+        if (checkboxVal.includes(name)) {
+            setCheckBox((prev) => prev.filter(item => item !== name));
+        }
+        else {
+            setCheckBox((prev) => [...prev, name]);
+        }
+    }
+
     useEffect(() => {
-        // firestoreData();
+        setSearchParams({ "category": checkboxVal });
         getData();
-    }, [page, selectVal, checkboxVal]);
+    }, [page, selectVal, checkboxVal, searchParams]);
     // ---------------------------------
     return loading ? <Loading /> : (
         <div className='beauty-comp'>
@@ -70,15 +73,15 @@ const Beauty = () => {
                             <b>CATEGORIES</b>
                             <FaSearch />
                         </p>
-                        <ul className='list-unstyled ps-4' onChange={(e) => setCheckBox(e.target.name)}>
-                            <li className='d-flex align-items-center mb-2'><input type="checkbox" className='d-inline-block me-3' name="lipstick" />Lipstick</li>
-                            <li className='d-flex align-items-center mb-2'><input type="checkbox" className='d-inline-block me-3' name="nailPolish" />Nail Pollish</li>
-                            <li className='d-flex align-items-center mb-2'><input type="checkbox" className='d-inline-block me-3' name="perfume" />Perfume</li>
-                            <li className='d-flex align-items-center mb-2'><input type="checkbox" className='d-inline-block me-3' name="massageOil" />Massage Oils</li>
-                            <li className='d-flex align-items-center mb-2'><input type="checkbox" className='d-inline-block me-3' name="faceWash" />Face Wash and Cleanser</li>
-                            <li className='d-flex align-items-center mb-2'><input type="checkbox" className='d-inline-block me-3' name="bindi" />Bindi</li>
-                            <li className='d-flex align-items-center mb-2'><input type="checkbox" className='d-inline-block me-3' name="serum" />Serum and Gel</li>
-                            <li className='d-flex align-items-center mb-2'><input type="checkbox" className='d-inline-block me-3' name="skinCare" />Skin Care Combo</li>
+                        <ul className='list-unstyled ps-4'>
+                            <li className='d-flex align-items-center mb-2'><input type="checkbox" className='d-inline-block me-3' name="lipstick" onChange={handleChange} checked={checkboxVal.includes("lipstick")} />Lipstick</li>
+                            <li className='d-flex align-items-center mb-2'><input type="checkbox" className='d-inline-block me-3' name="nailPolish" onChange={handleChange} checked={checkboxVal.includes("nailPolish")} />Nail Pollish</li>
+                            <li className='d-flex align-items-center mb-2'><input type="checkbox" className='d-inline-block me-3' name="perfume" onChange={handleChange} checked={checkboxVal.includes("perfume")} />Perfume</li>
+                            <li className='d-flex align-items-center mb-2'><input type="checkbox" className='d-inline-block me-3' name="massageOil" onChange={handleChange} checked={checkboxVal.includes("massageOil")} />Massage Oils</li>
+                            <li className='d-flex align-items-center mb-2'><input type="checkbox" className='d-inline-block me-3' name="faceWash" onChange={handleChange} checked={checkboxVal.includes("faceWash")} />Face Wash and Cleanser</li>
+                            <li className='d-flex align-items-center mb-2'><input type="checkbox" className='d-inline-block me-3' name="bindi" onChange={handleChange} checked={checkboxVal.includes("bindi")} />Bindi</li>
+                            <li className='d-flex align-items-center mb-2'><input type="checkbox" className='d-inline-block me-3' name="serum" onChange={handleChange} checked={checkboxVal.includes("serum")} />Serum and Gel</li>
+                            <li className='d-flex align-items-center mb-2'><input type="checkbox" className='d-inline-block me-3' name="skinCare" onChange={handleChange} checked={checkboxVal.includes("skinCare")} />Skin Care Combo</li>
                             <li className="text-danger ps-4 pt-2">+173 more</li>
                         </ul><hr />
                         <p className='ps-4 d-flex justify-content-between w-75 align-items-center'>
