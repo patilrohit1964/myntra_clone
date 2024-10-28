@@ -3,10 +3,13 @@ import React, { useState } from 'react'
 import Form from 'react-bootstrap/Form';
 import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
-// import GoogleButton from 'react-google-button'
-// import { auth, provider } from '../firebase/firebase'
-// import Privatecomp from '../private/Privatecomp'
+import { useDispatch, useSelector } from 'react-redux';
+import { ADD_USER_Token } from '../redux/actions/authAction';
+
 const Login = () => {
+
+    const dispatch = useDispatch();
+    const { auth } = useSelector((state) => state.authReducer);
     const [userContact, setContact] = useState('');
     const [valid, setValid] = useState(false);
     const navigate = useNavigate();
@@ -17,13 +20,11 @@ const Login = () => {
             return 0;
         } else {
             setValid(false);
-            localStorage.setItem('number', JSON.stringify(userContact));
+            dispatch(ADD_USER_Token(userContact));
+            localStorage.setItem("number", JSON.stringify(auth))
             toast.success('login successfully');
             navigate('/wishlist');
         }
-        // signInWithPopup(auth, provider).then(e => {
-        //     console.log(e.auth);
-        // })
     }
     return (
         <div>

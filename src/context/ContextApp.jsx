@@ -9,3 +9,4 @@ export const DataOfContext=({children})=>{
     }
     return <ContextData.Provider value={{handleLoading,loading}}>{children}</ContextData.Provider>
 }
+    

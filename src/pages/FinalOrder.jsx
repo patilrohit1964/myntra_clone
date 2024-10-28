@@ -13,7 +13,6 @@ const FinalOrder = () => {
         setTimeout(() => {
             setImage('https://www.sendx.io/hubfs/Email-Messages-for-Order-Confirmation-Page-v3.png');
             setWaiting(false);
-
         }, 2000);
     }
     return (

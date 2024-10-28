@@ -4,12 +4,16 @@ import App from './App.jsx'
 import './index.css'
 import { BrowserRouter } from 'react-router-dom'
 import { DataOfContext } from './context/ContextApp.jsx'
+import { Provider } from 'react-redux'
+import { store } from './redux/store.js'
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <DataOfContext>
+
+  <BrowserRouter>
+    <DataOfContext>
+      <Provider store={store}>
         <App />
-      </DataOfContext>
-    </BrowserRouter>
-  </React.StrictMode>,
+      </Provider>
+    </DataOfContext>
+  </BrowserRouter>
+
 )

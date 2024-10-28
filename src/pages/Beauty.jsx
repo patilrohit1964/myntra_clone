@@ -1,44 +1,38 @@
-import axios from 'axios';
+
 import React, { useContext, useEffect, useState } from 'react';
 import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
 import { FaRegHeart, FaSearch, FaStar } from "react-icons/fa";
 import { IoMdArrowDropdown } from "react-icons/io";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useSearchParams } from 'react-router-dom';
 import Loading from '../components/Loading';
 import { ContextData } from '../context/ContextApp';
-
+import { getData } from '../redux/actions/productAction';
 const Beauty = () => {
-    // context api data
-    const { handleLoading, loading } = useContext(ContextData);
+
+    const dispatch = useDispatch();
+    const { products, isLoading } = useSelector(state => state.productReducer);
     //----------------------------------
     const [searchParams, setSearchParams] = useSearchParams();
-    const [data, setData] = useState([]);
     const [page, setPage] = useState(1);
     const [selectVal, setSelectVal] = useState(null);
     const [checkboxVal, setCheckBox] = useState(searchParams.getAll("category") || []);
-    const [startVal, setStart] = useState(NaN);
-    const [end, setEnd] = useState(1000);
+
     // -----------------------------------
     // fetch data from json
-    async function getData() {
-        console.log(searchParams.getAll("category"))
-        let result = axios.get("https://myntra-backend-5dfe.onrender.com/beautyProducts", {
-            params: {
-                _page: page,
-                _limit: 10,
-                _sort: "price",
-                _order: selectVal,
-                category: searchParams.getAll("category") || [],
-            }
-        })
-        let finalResult = (await result).data;
-        setData(finalResult);
-        handleLoading(false);
-    };
+    const paramObject = {
+        params: {
+            _page: page,
+            _limit: 10,
+            _sort: "price",
+            _order: selectVal,
+            category: searchParams.getAll("category") || [],
+        }
+    }
 
     function handleChange(e) {
-        const { value, name } = e.target;
+        const { name } = e.target;
         if (checkboxVal.includes(name)) {
             setCheckBox((prev) => prev.filter(item => item !== name));
         }
@@ -49,10 +43,10 @@ const Beauty = () => {
 
     useEffect(() => {
         setSearchParams({ "category": checkboxVal });
-        getData();
+        dispatch(getData(paramObject));
     }, [page, selectVal, checkboxVal, searchParams]);
     // ---------------------------------
-    return loading ? <Loading /> : (
+    return isLoading ? <Loading /> : (
         <div className='beauty-comp'>
             <div className='d-flex'>
                 <aside>
@@ -154,7 +148,7 @@ const Beauty = () => {
                         </Form.Select>
                     </div><hr />
                     <div className="d-flex justify-content-around flex-wrap align-items-center">
-                        {data.length > 0 ? data.map((e, index) => (
+                        {products.length > 0 ? products.map((e, index) => (
                             <Card style={{ width: '15rem' }} className='mb-3 text-center' key={index}>
                                 <Link to={`/prDetail/${e.id}`}>
                                     <Card.Img src={e.image} alt={e.description} />
@@ -176,7 +170,7 @@ const Beauty = () => {
                     <div className='data-btns d-flex justify-content-center mt-5 align-items-center w-50 bg- m-auto'>
                         <button className="btn btn-secondary p-2 me-2" onClick={(e) => setPage(page - 1)} disabled={page == 1}>Previous</button>
                         <h4>{page}</h4>
-                        <button className="btn btn-secondary p-2 ms-2" onClick={(e) => setPage(page + 1)} disabled={data.length == 0}>Next</button>
+                        <button className="btn btn-secondary p-2 ms-2" onClick={(e) => setPage(page + 1)} disabled={products.length == 0}>Next</button>
                     </div>
                 </div>
             </div>

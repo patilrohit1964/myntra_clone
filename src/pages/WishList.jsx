@@ -1,61 +1,36 @@
 import axios from 'axios';
-import React, { useContext, useEffect, useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
-import Card from 'react-bootstrap/Card';
-import { FaStar } from 'react-icons/fa';
+import React, { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
-import Loading from '../components/Loading';
-import { ContextData } from '../context/ContextApp';
+import Card from 'react-bootstrap/Card';
 import toast from 'react-hot-toast';
-
+import { FaStar } from 'react-icons/fa';
+import { useDispatch, useSelector } from 'react-redux';
+import { NavLink } from 'react-router-dom';
+import Loading from '../components/Loading';
+import { deleteCard, fetchWishlistData } from '../redux/actions/productAction';
 const WishList = () => {
 
-    // context data
-    const { handleLoading, loading } = useContext(ContextData);
-    // -------------------------------------------
-    const [data, setData] = useState([]);
+    // react redux data
+    const dispatch = useDispatch();
+    const { isLoading, cartProducts } = useSelector(state => state.productReducer);
 
-
-    // fetch wisht list data
-    async function fetchWishlistData() {
-        let fetchData = axios.get('https://myntra-backend-5dfe.onrender.com/cart');
-        let result = (await fetchData).data;
-        setData(result);
-        handleLoading(false);
-    }
-
-    // delete item from wishlist
-    async function deleteCard(id) {
-        try {
-            let fetchData = axios.delete(`https://myntra-backend-5dfe.onrender.com/cart/${id}`);
-            let result = await fetchData;
-            if (result.status == 200) {
-                toast.success("Remove Data From Wishlist Successfully");
-                fetchWishlistData();
-            }
-        }
-        catch (err) {
-            console.log(err);
-        }
-    }
     // ------------------------------------------------
     useEffect(() => {
-        fetchWishlistData();
+        dispatch(fetchWishlistData());
     }, [])
     // ------------------------------------------------
-    return loading ? <Loading /> : (
+    return isLoading ? <Loading /> : (
         <div className='wishlist-comp'>
-            {data.length == 0 ?
+            {cartProducts.length == 0 ?
                 <div className='text-center'>
                     <img src="/wishlist-removebg-preview.png" alt="" height={550} width={500} /><br />
                     <h5 className='text-secondary'>You haven't Saved Anything yet.</h5>
                 </div>
                 :
                 <div>
-                    <h4 className='container mt-4'>My Wishlist <span className='text-secondary'>{data.length} Item</span></h4>
+                    <h4 className='container mt-4'>My Wishlist <span className='text-secondary'>{cartProducts.length} Item</span></h4>
                     <div className='d-flex justify-content-center flex-wrap mt-5'>
-                        {data.length > 0 ? data.map((e, index) => (
+                        {cartProducts.length > 0 ? cartProducts.map((e, index) => (
                             <Card style={{ width: '15rem' }} className='mb-3 text-center me-3' key={index}>
                                 <Card.Img src={e.image} alt={e.description} />
                                 <Card.Body>
@@ -67,7 +42,7 @@ const WishList = () => {
                                         <Button variant="danger">
                                             <NavLink to={`/bag/${e.id}`} className='text-white'>Move To Bag</NavLink>
                                         </Button>
-                                        <Button variant="danger" onClick={() => deleteCard(e.id)}>
+                                        <Button variant="danger" onClick={() => dispatch(deleteCard(e.id))}>
                                             Delete
                                         </Button>
                                     </div>
