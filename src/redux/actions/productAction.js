@@ -1,5 +1,7 @@
 import axios from "axios";
 import {
+  GET_BAG_PRODUCT_WITH_ID,
+  GET_DATA_WITH_CATEGORIES,
   GET_PRODUCTS,
   GET_PRODUCTS_WITH_CART,
   GET_PRODUCTS_WITH_ID,
@@ -81,4 +83,21 @@ export const deleteCard = (id) => async (dispatch) => {
   } catch (err) {
     console.log(err);
   }
+};
+
+// get bag product
+export const getDataFromBag = (id) => async (dispatch) => {
+  const fetchBagData = await axios.get(
+    `https://myntra-backend-5dfe.onrender.com/beautyProducts/${id}`
+  );
+  dispatch({ type: GET_BAG_PRODUCT_WITH_ID, payload: fetchBagData.data });
+};
+
+// get data with categories
+export const getDataWithCategory = (paramObject) => async (dispatch) => {
+  let data = await axios.get(
+    `https://myntra-backend-5dfe.onrender.com/beautyProducts`,
+    paramObject
+  );
+  dispatch({ type: GET_DATA_WITH_CATEGORIES, payload: data.data });
 };

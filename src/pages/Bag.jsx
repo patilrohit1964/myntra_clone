@@ -6,31 +6,31 @@ import { FaStar } from 'react-icons/fa';
 import { NavLink, useNavigate, useParams } from 'react-router-dom';
 import Loading from '../components/Loading';
 import { ContextData } from '../context/ContextApp';
+import { useDispatch, useSelector } from 'react-redux';
+import { getDataFromBag } from '../redux/actions/productAction';
 const Bag = () => {
-    const [dataId, setIdData] = useState({});
+
+    // redux
+    const dispatch = useDispatch();
+    const { isloading, getWithId } = useSelector((state) => state.productReducer);
+    const { auth } = useSelector((state) => state.authReducer);
     const [confirmOrder, setOrder] = useState(true);
-    const auth = localStorage.getItem('number');
+
     const navigate = useNavigate();
     const { id } = useParams();
-    const { loading, handleLoading } = useContext(ContextData);
-    async function getDataFromBag() {
-        const fetchBagData = axios.get(`https://myntra-backend-5dfe.onrender.com/beautyProducts/${id}`)
-        const result = (await fetchBagData).data;
-        setIdData(result);
-        handleLoading(false);
-    }
+
     useEffect(() => {
-        getDataFromBag();
+        dispatch(getDataFromBag(id));
     }, []);
-    return loading ? <Loading /> : (
+    return isloading ? <Loading /> : (
         <div className='bag-comp'>
             {confirmOrder ? <Card style={{ width: '20rem' }} className='mt-3 text-center container'>
-                <Card.Img src={dataId.image} alt={dataId.description} />
+                <Card.Img src={getWithId.image} alt={getWithId.description} />
                 <Card.Body>
-                    <span>{dataId.rating} <FaStar className='text-primary' /> | {dataId.ratingCount}</span>
-                    <Card.Title className='pt-2'>{dataId.title}</Card.Title>
-                    <Card.Text className='text-secondary m-0'>{dataId.description}</Card.Text><br />
-                    <Card.Text><b>{dataId.price}</b></Card.Text>
+                    <span>{getWithId.rating} <FaStar className='text-primary' /> | {getWithId.ratingCount}</span>
+                    <Card.Title className='pt-2'>{getWithId.title}</Card.Title>
+                    <Card.Text className='text-secondary m-0'>{getWithId.description}</Card.Text><br />
+                    <Card.Text><b>{getWithId.price}</b></Card.Text>
                     <Button variant="danger" className='text-white'>
                         <NavLink to={'/orderComp'} className='text-white'>Place Order Now</NavLink>
                         {/* Place Order Now */}

@@ -1,23 +1,19 @@
-import axios from 'axios'
-import React, { useContext, useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom';
-import { FaShoppingBag, FaBookmark } from "react-icons/fa";
-import Loading from '../components/Loading';
-import { ContextData } from '../context/ContextApp';
+import React, { useEffect } from 'react';
 import toast from 'react-hot-toast';
+import { FaBookmark, FaShoppingBag } from "react-icons/fa";
 import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import Loading from '../components/Loading';
 import { addItem, ProductGetId } from '../redux/actions/productAction';
 const ProductDetails = () => {
 
     // redux data
     const dispatch = useDispatch();
     const { isLoading, getWithId } = useSelector((state) => state.productReducer);
-    const { auth } = useSelector((state) => state.authReducer);
+    const auth = localStorage.getItem("number");
+
     // --------------------------------------------------
     const { id } = useParams();
-
-
-
     // --------------------------------------
     useEffect(() => {
         dispatch(ProductGetId(id));

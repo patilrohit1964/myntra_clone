@@ -9,7 +9,7 @@ import { ADD_USER_Token } from '../redux/actions/authAction';
 const Login = () => {
 
     const dispatch = useDispatch();
-    const { auth } = useSelector((state) => state.authReducer);
+
     const [userContact, setContact] = useState('');
     const [valid, setValid] = useState(false);
     const navigate = useNavigate();
@@ -21,7 +21,6 @@ const Login = () => {
         } else {
             setValid(false);
             dispatch(ADD_USER_Token(userContact));
-            localStorage.setItem("number", JSON.stringify(auth))
             toast.success('login successfully');
             navigate('/wishlist');
         }

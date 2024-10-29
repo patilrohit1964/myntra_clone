@@ -1,39 +1,36 @@
-import axios from 'axios';
-import React, { useContext, useEffect, useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
-import { FaStar, FaRegHeart } from 'react-icons/fa'
+import React, { useEffect, useState } from 'react';
 import Card from 'react-bootstrap/Card';
-import Form from 'react-bootstrap/Form'
+import Form from 'react-bootstrap/Form';
+import { FaRegHeart, FaStar } from 'react-icons/fa';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, useParams } from 'react-router-dom';
 import Loading from '../components/Loading';
-import { ContextData } from '../context/ContextApp';
+import { getDataWithCategory } from '../redux/actions/productAction';
 const ListProduct = () => {
+
     // context data
-    const { handleLoading, loading } = useContext(ContextData);
+    const dispatch = useDispatch();
+
+    const { getDataWithCategories, isLoading } = useSelector(state => state.productReducer);
     // ----------------------------------------------
-    const [data, setData] = useState([]);
     const [sortSelect, setSelect] = useState(null);
     const { category } = useParams();
     const [search, setSearch] = useState(null);
-    // ----------------------------------------------
-    async function getDataWithCategory() {
-        let data = axios.get(`https://myntra-backend-5dfe.onrender.com/beautyProducts`, {
-            params: {
-                category: category,
-                _sort: "price",
-                _order: sortSelect,
-                q: search
-            }
-        })
-        let result = (await data).data;
-        setData(result);
-        handleLoading(false);
-    }
 
+    const paramObject = {
+        params: {
+            category: category,
+            _sort: "price",
+            _order: sortSelect,
+            q: search
+        }
+    }
+    
     useEffect(() => {
-        getDataWithCategory();
+        dispatch(getDataWithCategory(paramObject));
     }, [sortSelect, search]);
 
-    return loading ? <Loading /> : (
+    return isLoading ? <Loading /> : (
         <div className='listProduct-comp'>
             <div className='d-flex align-items-center justify-content-center mt-4'>
                 <Form.Control type='search' placeholder='type here for search products' onChange={(e) => setSearch(e.target.value)} className='w-25' />
@@ -44,7 +41,7 @@ const ListProduct = () => {
                 </Form.Select>
             </div>
             <div className='d-flex justify-content-center flex-wrap mt-5'>
-                {data.length > 0 ? data.map((e, index) => (
+                {getDataWithCategories.length > 0 ? getDataWithCategories.map((e, index) => (
                     <Card style={{ width: '15rem' }} className='mb-3 text-center me-2' key={index}>
                         <Link to={`/prDetail/${e.id}`}>
                             <Card.Img src={e.image} alt={e.description} />
